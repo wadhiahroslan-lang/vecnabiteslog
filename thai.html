@@ -1,0 +1,380 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite n View - Thai Cuisine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tamarind: #630C0D; 
+            --cream: #FFF5F7;
+            --pink-light: #FFD1DC;
+        }
+
+        body {
+            background-image: url('twall.jpg');
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        
+        .simple-header {
+            background: var(--tamarind);
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        .emoji-container {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: pulseEmoji 2s infinite;
+        }
+
+        @keyframes pulseEmoji {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .title-nav-container {
+            max-width: 950px;
+            margin: -60px auto 40px;
+            background: white;
+            border: 4px solid var(--tamarind);
+            border-radius: 30px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--tamarind);
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+        }
+
+        
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .back-symbol {
+            text-decoration: none;
+            color: var(--tamarind);
+            font-size: 1.8rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-symbol:hover {
+            transform: translateX(-5px);
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--tamarind);
+            border: 2px solid var(--tamarind);
+            padding: 8px 5px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            background: var(--tamarind);
+            color: white;
+        }
+
+        
+        .search-wrapper {
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border: 2px solid var(--tamarind);
+            border-radius: 30px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            outline: none;
+            flex-grow: 1;
+        }
+
+        .search-box button {
+            background: var(--tamarind);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+       
+        .review-section {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .food-card {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 25px;
+            border: 2px solid var(--pink-light);
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            align-items: center;
+        }
+
+        .food-card:hover {
+            transform: scale(1.02) translateX(10px);
+            border-color: var(--tamarind);
+            box-shadow: -10px 10px 0px var(--tamarind);
+        }
+
+        .food-img-box {
+            width: 180px;
+            height: 180px; /* Standard Tinggi */
+            flex-shrink: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--tamarind);
+        }
+
+        .food-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Gambar takkan penyet */
+        }
+
+        .review-box {
+            flex-grow: 1;
+            height: 180px; /* Samakan dengan tinggi gambar */
+            padding: 20px;
+            background: #fff9fa;
+            border-radius: 20px;
+            border-left: 5px solid var(--tamarind);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .food-name {
+            color: var(--tamarind);
+            margin: 0 0 5px 0;
+            font-size: 1.4rem;
+        }
+
+        .rating-stars {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--tamarind);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .nav-grid { grid-template-columns: repeat(3, 1fr); }
+            .food-card { flex-direction: column; text-align: center; height: auto; }
+            .food-img-box { width: 100%; height: 200px; }
+            .review-box { width: 100%; height: auto; border-left: none; border-top: 5px solid var(--tamarind); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="simple-header">
+        <div class="emoji-container">&#127836 &#127857 &#129368 &#127836 &#127857 &#129368</div>
+        <p>VecnaBitesLog Review Pages</p>
+    </div>
+
+    <div class="title-nav-container">
+        <h1 class="main-title">Thai Cuisine</h1>
+        <div class="nav-wrapper">
+            <a href="review.html" class="back-symbol" title="Back to Reviews">&#128281</a>
+            <nav class="nav-grid">
+                <a href="mfood.html" class="nav-item">Malaysian Cuisine</a>
+                <a href="thai.html" class="nav-item">Thai Cuisine</a>
+                <a href="japan.html" class="nav-item">Japanese Cuisine</a>
+                <a href="korea.html" class="nav-item">Korean Cuisine</a>
+                <a href="italy.html" class="nav-item">Italian Cuisine</a>
+                <a href="france.html" class="nav-item">French Cuisine</a>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search dish name...">
+            <button type="button" onclick="searchFood()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="review-section" id="foodList">
+        <div class="food-card">
+            <div class="food-img-box"><img src="tomyam.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Tom Yum Goong (Spicy Shrimp Soup)</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The soul of Thai cuisine. This soup is a masterclass in balancing bold flavors—it's simultaneously fiery, sour, and aromatic. The scent of lemongrass and kaffir lime leaves hits you first, followed by the richness of the prawns. Whether you prefer the clear broth (Nam Sai) or the creamy version (Nam Khon), it’s a refreshing palate cleanser that leaves a lingering heat."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="padthai.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Pad Thai (Stir-Fried Rice Noodles)</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"A beautiful mess of textures and flavors. These thin rice noodles are stir-fried with a tamarind-based sauce that is perfectly sweet and tangy. The crunch from the fresh beansprouts and crushed peanuts, combined with the silkiness of the egg and firm tofu, creates a satisfying bite every time. A squeeze of fresh lime at the end is essential to cut through the richness."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="somtum.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Som Tum (Green Papaya Salad)</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"Crisp, cold, and incredibly punchy. This isn't your average salad; it’s a vibrant mix of shredded green papaya, chilies, garlic, and lime. Every bite offers a satisfying crunch that explodes with a salty-sour-spicy profile. It’s the perfect side dish to pair with grilled meats, providing a sharp contrast that keeps your appetite going."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="gaeng.png"></div>
+            <div class="review-box">
+                <h3 class="food-name">Gaeng Keow Wan (Green Curry)</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"Fragrant and deceptively spicy. Don’t let the soft, pastel green color fool you—this curry is packed with heat from fresh green chilies. The coconut milk gives it a smooth, velvety texture that coats the chicken and eggplant beautifully. It’s more aromatic and slightly sweeter than red curry, making it a favorite for those who love herbal, creamy dishes."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="pad.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Pad Kra Pao (Basil Stir-Fry)</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The ultimate Thai street food staple. It’s a simple yet addictive dish of minced meat sautéed with a generous amount of holy basil and bird's eye chilies. The peppery, anise-like aroma of the basil is the highlight. It is almost always served over rice and topped with a crispy fried egg (Kai Dao) with a runny yolk that binds all the spices together."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="mango.jpeg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Mango Sticky Rice</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"A heavenly tropical dessert. The warm, chewy glutinous rice is soaked in sweet coconut cream, making it rich and comforting. When paired with chilled, ripe, honey-sweet mango slices and a sprinkle of toasted mung beans for crunch, it becomes the perfect ending to a spicy meal. It’s simple, elegant, and pure sunshine on a plate."</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+		<footer style="background-color: #350a06; padding: 0.1px 5px; text-align: center; color: white; Bainsley: sans-serif;">
+    
+    <p style="font-style: italic; margin-bottom: 20px;">Small steps, good food, and a grateful heart.</p>
+
+    <div style="max-width: 600px; margin: 0 auto 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <iframe 
+    src="https://maps.google.com/maps?q=Dubai&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+    width="100%" 
+    height="150" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy">
+</iframe>
+    </div>
+
+    <p style="line-height: 1.8;">
+        📧: <a href="mailto:vecnabiteslog@gmail.com" style="color: white; text-decoration: none; font-weight: bold;">vecnabiteslog@gmail.com</a><br>
+        📞: <a href="tel:01130622143" style="color: white; text-decoration: none; font-weight: bold;">01130622143</a>
+    </p>
+
+    <hr style="width: 50px; border: 1px solid white; margin: 10px auto;">
+
+    <p style="font-size: 0.9rem; opacity: 0.8;">© 2026 Vecna Bites Log </p>
+</footer>
+
+
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function searchFood() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('food-card');
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].querySelector('.food-name').innerText.toLowerCase();
+                cards[i].style.display = name.includes(input) ? "flex" : "none";
+            }
+        }
+        document.getElementById('searchInput').addEventListener('keyup', searchFood);
+    </script>
+
+</body>
+</html>

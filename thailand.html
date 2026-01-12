@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Delights</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:ital,wght@0,300;0,400;0,600;1,300&family=Gochi+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" />
+
+    <style>
+      
+        :root {
+            --maroon: #a53d3d;
+            --maroon-dark: #350a06;
+            --cream: #fcf9f2;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: var(--maroon);
+            padding: 10px 40px;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links a, .dropbtn {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            transition: 0.3s;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .nav-links a:hover {
+            color: #ffb8b8;
+            transform: translateY(-2px);
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin-left: 10px;
+        }
+
+        .search-container input {
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+            padding: 2px 5px;
+            font-size: 14px;
+            width: 120px;
+        }
+ 
+        .search-container input::placeholder {
+            color: #eee;
+        }
+
+        .search-container button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container .material-symbols-outlined {
+            font-size: 20px;
+        }
+
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 10;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%); 
+            border-radius: 4px;
+            overflow: hidden;
+            padding: 5px 0;
+            margin-top: 0; 
+        }
+
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -20px; 
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: transparent;
+        }
+
+        .dropdown-content a {
+            color: #333 !important;
+            background: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            transform: none !important; 
+            padding: 12px 16px !important;
+            display: block !important;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #fcf9f2 !important;
+            color: var(--maroon) !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 10% 40px 10%;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text { flex: 1; text-align: right; }
+        
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--maroon);
+            margin: 0;
+            line-height: 1;
+        }
+
+       
+        .hero-text p {
+            font-size: 1.5rem;
+            font-weight: 500;   
+            color: #555;   
+            margin-top: 10px;
+        }
+
+        .hero-image { flex: 1; text-align: left; }
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0px var(--maroon);
+            object-fit: cover;
+        }
+
+        .recipe-wrapper {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+            padding: 40px;
+            gap: 40px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .ingredients, .instructions { flex: 1; }
+
+        .recipe-wrapper h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--maroon);
+            border-bottom: 3px solid var(--maroon);
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .ingredients ul { list-style: none; }
+        .ingredients li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .instructions ol { counter-reset: steps; list-style: none; }
+        .instructions li {
+            counter-increment: steps;
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 30px;
+        }
+        .instructions li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0; top: 0;
+            width: 38px; height: 38px;
+            background: var(--maroon);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .recipe-divider { height: 10px; }
+
+
+        
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 2000;
+            background-color: var(--maroon);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+          
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease-in-out;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #scrollToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--maroon-dark);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section, .recipe-wrapper {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .hero-text, .hero-image { text-align: center; }
+            .hero-section h1 { font-size: 3rem; }
+            .instructions li { padding-left: 0; padding-top: 50px; }
+            .instructions li::before { left: 50%; transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        
+        <div class="nav dropdown">
+            <a href="recipe.html" class="dropbtn">Cuisine</a>
+            <div class="dropdown-content">
+                <a href="malaysia.html">Malaysian</a>
+                <a href="thailand.html">Thai</a>
+                <a href="korean.html">South Korean</a>
+            </div>
+          </div>
+        <a href="foodiary.html">Food Diary</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="review.html">Review</a>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="searchRecipe()" placeholder="Search Food ...">
+            <button type="button">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+
+<button id="scrollToTopBtn" onclick="scrollToTop()">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text">
+            <h1>Pa Thong Ko</h1>
+            <p>Thai Doughnut</p>
+        </div>
+        <div class="hero-image">
+            <img src="pathongko.jpg" alt="Pa Thong Ko">
+        </div>
+    </header>
+
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                
+                <li>250 g all-purpose flour</li>
+                <li>50 g cornstarch</li>
+                <li>2 tsp vegetable oil</li>
+                <li>1 tsp LorAnn baker’s ammonia</li>
+                <li>1 tsp fine table salt</li>
+                <li>1 tbsp sugar</li>
+                <li>200 ml water</li>
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">For Serving:</li>
+                <li> Sweetened condensed milk</li>
+                <li> Coconut pandan custard or hot fresh soy milk</li>
+
+            
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                <li> Sift flour and cornstarch together into a mixing bowl.</li>
+                <li>Put water into a small bowl then add salt and sugar and stir until completely dissolved.</li>
+                <li>Add baking ammonia and stir until dissolved.</li>
+                <li>Mix with your hand just until combined and no dry flour is left, it should only take 1-2 minutes. <strong?DON'T</strong> knead. The dough should be shaggy and sticky, and does not look right (but it is!). Cover and rest for 2.5-3 hours.</li>
+                <li>When ready to fry, preheat at least 1.5 inches of frying oil in a wide pot or wok to 375F.  Ideally, keep a deep-fry thermometer in the oil while you fry. If you don’t have a thermometer that can stay in the pot, check your oil temp often while you fry.</li>
+                <li>While the oil is heating, prepare a large cutting board near the oil; this is your dough-shaping station.</li>
+                <li>Dust the board thoroughly with flour, then turn the dough onto the board. Dust the top of the dough with more flour, then use your hands to pat the dough down into a ¼ inch thick rectangle, 7-8 inches wide, keeping the sides as straight as possible to minimize waste. Do not knead the dough and try to work it as little as possible.</li>
+                <li>Cut the rectangle into 3 strips (each should be about 2 ¼ - 3 inches wide; do <strong>NOT</strong> make these bigger or the ammonia may  not evaporate completely). Work with 1 strip at a time and keep the other 2 covered in a barely-moist kitchen towel or plastic wrap so they don't dry out.</li>
+                <li>Trim the ends of the strip to square them off, then cut the strip into 1-inch wide pieces (again, <strong> DO NOT </strong> make them bigger).</li>
+                <li>Dip a wooden skewer or a thin chopstick into a little cup of water and paint a 1-inch vertical strip of water into the center of every <strong>OTHER</strong> piece; this will be the glue. Put the dry piece on top of the wet piece and press gently in the center to stick them together. Once you're done forming, if the oil still has a bit of time to go, cover the pieces to prevent drying.</li>
+                <li>Right before you drop the pa thong ko into the oil, stretch the piece out with your hands until it is about double in length and drop it into the oil.</li>
+                <li>Fry in oil for <strong>AT LEAST</strong> 5 minutes, flipping often, until well browned on both sides and bubbling has subsided. Keep an eye on oil temp and try to maintain it around 375F and don’t let it drop lower than 360F. If the oil accidentally drops below 360, add a little bit more frying time to make sure all the ammonia is cooked off.</li>
+                <li>Place the finished pa thong ko onto some paper towels to absorb the excess oil.</li>
+                <li>Serve as soon as they're cool enough to handle. Enjoy!</li>
+            </ol>
+        </section>
+    </main>
+</div>
+
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text">
+            <h1>Tod Mun Pla</h1>
+            <p>Thai Fried Fish Cake</p>
+        </div>
+        <div class="hero-image">
+            <img src="todmunpla.jpg" alt="Tod Mun Pla">
+        </div>
+    </header>
+
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                <li> 350 g tender fish meat, dried thoroughly if thawed from frozen</li>
+                <li>2-3 tablespoon red curry paste</li>
+                <li>1 egg yolk</li>
+                <li>1 tsp sugar</li>
+                <li>½ cup long beans</li>
+                <li>⅓ cup Thai basil or holy basil, sliced into ribbons if large</li>
+                <li>5 kaffir lime leaves, finely julienned</li>
+                <li>Fish sauce, as needed (taste mixture before adding!)</li>
+
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Sweet Chili Dipping Sauce:</li>
+                <li>3 cloves garlic</li>
+                <li>1 spur chili (prik chee fah) or another type of big red chili pepper that's not too spicy</li>
+                <li>Thai chilies to taste, optional</li>
+                <li>½ cup sugar</li>
+                <li>½ tsp salt</li>
+                <li>⅓ cup white vinegar, cane vinegar or rice vinegar</li>
+                <li>3 tbsp water</li>
+                <li>Cucumber slices for serving</li>
+                <li>Optional add-ins for the dipping sauce: roasted crushed peanuts, sliced shallots</li>
+ 
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+                  
+                <ol>
+                <ol style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">For the Dipping Sauce:</ol><br>
+                <li>Place both chilies, garlic, vinegar, water, sugar and salt in a blender and blend just until there are no more chunks.</li>
+                <li>Pour the blended chilies into a small pot and bring to a simmer, then simmer for about 3-5 minutes or until it has a consistency of a thin syrup. The sauce will thicken as it cools, so if it is too thick once it is cool, you can add more water. Set aside until ready to use.</li>
+                
+                <ol style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">For the Fish Cakes:</ol><br>       
+                <li>Combine the fish, curry paste, egg yolk and sugar in a food processor. Process until fine, scraping the sides as needed. Then keep processing for a few minutes longer until the fish is firm enough that it holds its shape well when spooned. If this is your first time, cook up a bit of the mixture to taste for salt and spiciness. If you want a stronger curry flavour or more spiciness, add more curry paste, keeping in mind that that also adds more saltiness. If you just want more saltiness, add a little fish sauce. </li>
+                <li>Transfer the fish paste into a mixing bowl and add chopped long beans, Thai basil and kaffir lime leaves; stir until well combined.</li>
+                <li>(At this point you can deep fry the fish cakes like we traditionally do, or you can pan fry them as per instructions below)</li>
+                <li>Get your station ready by having a bowl of cold water and some paper towel (for your hands) by the stove.  Heat a skillet over medium heat until hot, then add just enough oil to coat the bottom of the skillet. Wet your hands and a tablespoon in the cold water, then scoop a heaping tablespoon of fish paste with the wet spoon and place in your hands. Gently pat the fish cakes to form into patties and place in a preheated skillet. Fry until browned on both sides, about 2 minutes per side. You may need to add more oil as you go. </li>
+                <li>To serve, stir cucumber slices, peanuts and shallots into the dipping sauce and serve with the fish cakes. You can also serve extra cucumber on the side as it goes so well with fresh cucumber.</li>
+            </ol>
+        </section>
+    </main>
+</div>
+
+
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text">
+            <h1>Bua Loy</h1>
+            <p>Glutinous Rice Balls</p>
+        </div>
+        <div class="hero-image">
+            <img src="bualoy.jpg" alt="Bua Loy">
+        </div>
+    </header>
+
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+              <ul>
+                  <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Dough:</li>
+                <li>1 cup (100 g) glutinous rice flour</li>
+                <li>½ cup cooked and mashed taro root, kabocha squash or other colourful juices such as pandan juice or beet juice</li>
+                <li>¼ - ½ cup water, as needed</li>
+
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Sweet Coconut Milk:</li>
+                <li>2 cups coconut milk</li>
+                <li>1 cup water</li>
+                <li>¾ cup chopped palm sugar</li>
+                <li>¾ tsp salt</li>
+                <li>½ pandan leaf, optional</li>
+
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                
+                <ol style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">For the Dough:</ol><br> 
+                <li>Mix the glutinous rice flour and mashed taro or squash using your fingers until well mixed. Add water, a little at a time, and knead until a dough forms. The dough should be soft but not sticky or tacky. If it becomes sticky, just add a little more flour and knead until it no longer sticks to your fingers.</li>
+                <li> Turn the dough onto a cutting board and pat it down into a rectangle a little less than 1 cm thick. Cut the dough into 1 cm-thick strips and separate the strips so they don't fuse back together. Take each strip and cut them into 1 cm-long pieces so that all your pieces are now roughly 1 cm cubes. Roll each piece either between the palms of your hands or the tips of your fingers so you have little balls.</li>
+                <li>When all the balls are rolled, keep them wrapped tightly in plastic wrap if you are not ready to cook them immediately so they don't dry out. Bring a pot of water to a full boil, and while waiting for the water to boil, make the sweet coconut milk.</li>
+                 <ol style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">For the Sweet Coconut Milk:</ol><br> 
+                <li>Put the coconut milk, water, pandan leaf, ½ cup of chopped palm sugar and salt into a pot and cook over medium heat, stirring until all the sugar is dissolved. Taste and add more sugar as needed. Turn off the heat and remove the pandan leaf.</li>
+               <ol style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">To cook the Bua Loy:</ol><br> 
+                <li>Have a large bowl of cold water ready beside the pot of boiling water. Drop the Bua Loy into the boiling water in batches without crowding the pot. Within 1 minute they should float, and as soon as they float, fish them out using a slotted spoon and put them directly in the bowl of cold water (they will sink in cold water). Repeat until you are finished with all the dough.</li>
+                <ol style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">To assemble:</ol><br> 
+                <li>Drain the Bua Loy well and add them to the coconut milk. Heat the coconut Bua Loy mixture just until it comes back to a simmer so that the Bua Loy can absorb the flavour of the coconut milk, and turn the heat off immediately. Serve warm or room temperature.</li>
+            </ol>
+        </section>
+    </main>
+</div>
+
+<script>
+
+function searchRecipe() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.getElementsByClassName('recipe-card');
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector('h1').innerText.toLowerCase();
+        cards[i].style.display = title.includes(input) ? "" : "none";
+    }
+}
+
+
+let mybutton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {
+    
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.classList.add("show");
+    } else {
+        mybutton.classList.remove("show");
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+</html>
