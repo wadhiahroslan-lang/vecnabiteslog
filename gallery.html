@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food Gallery</title>
+<link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+<a id="top"></a>
+
+
+<div class="video-background">
+    <video autoplay muted loop playsinline>
+        <source src="bg1.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+        <source src="bg2.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+        <source src="bg3.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="page-content">
+
+
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="index.html">HOME</a>
+    <a href="recipe.html">CUISINE</a>
+    <a href="foodiary.html">FOOD DIARY</a>
+    <a href="gallery.html" class="active">GALLERY</a>
+    <a href="review.html">REVIEW</a>
+  </div>
+
+  <div class="nav-time" id="dateTime"></div>
+</nav>
+
+
+
+<div class="marquee-wrapper">
+  <div class="marquee">
+    <img src="marquee1.jpg"><img src="marquee2.jpg"><img src="marquee3.jpg">
+    <img src="marquee4.jpg"><img src="marquee5.jpg"><img src="marquee6.jpg">
+    <img src="marquee7.jpg"><img src="marquee8.jpg"><img src="marquee9.jpg">
+    <img src="marquee10.jpg">
+
+   
+    <img src="marquee1.jpg"><img src="marquee2.jpg"><img src="marquee3.jpg">
+    <img src="marquee4.jpg"><img src="marquee5.jpg"><img src="marquee6.jpg">
+    <img src="marquee7.jpg"><img src="marquee8.jpg"><img src="marquee9.jpg">
+    <img src="marquee10.jpg">
+
+   
+    <img src="marquee1.jpg"><img src="marquee2.jpg"><img src="marquee3.jpg">
+    <img src="marquee4.jpg"><img src="marquee5.jpg"><img src="marquee6.jpg">
+    <img src="marquee7.jpg"><img src="marquee8.jpg"><img src="marquee9.jpg">
+    <img src="marquee10.jpg">
+
+    
+    <img src="marquee1.jpg"><img src="marquee2.jpg"><img src="marquee3.jpg">
+    <img src="marquee4.jpg"><img src="marquee5.jpg"><img src="marquee6.jpg">
+    <img src="marquee7.jpg"><img src="marquee8.jpg"><img src="marquee9.jpg">
+    <img src="marquee10.jpg">
+
+
+  </div>
+</div>
+
+
+<section class="header">
+  <div class="header-time" id="dateTime"></div>
+
+  <h1 class="title-glow">Food Gallery</h1>
+
+  <p>"Food is memories." - José Andrés </p>
+</section>
+
+
+<section class="gallery">
+
+
+<div class="food-card">
+  <img src="breakfast.jpg">
+  <div class="glass-title" onclick="showBreakfast()">Breakfast</div>
+  <div class="card-content">
+    <ul>
+      <li>Provides energy to start the day</li>
+      <li>Improves focus and concentration</li>
+      <li>Boosts metabolism after sleep</li>
+      <li>Prevents overeating later</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="food-card">
+  <img src="lunch.jpg">
+  <div class="glass-title" onclick="showLunch()">Lunch</div>
+  <div class="card-content">
+    <ul>
+      <li>Restores energy during the day</li>
+      <li>Improves productivity and mood</li>
+      <li>Balances blood sugar levels</li>
+      <li>Prevents afternoon fatigue</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="food-card">
+  <img src="dessert.jpg">
+  <div class="glass-title" onclick="showDessert()">Dessert</div>
+  <div class="card-content">
+    <ul>
+      <li>Enhances dining satisfaction</li>
+      <li>Boosts mood and happiness</li>
+      <li>Encourages mindful eating</li>
+      <li>Adds enjoyment to meals</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="food-card">
+  <img src="dinner.jpg">
+  <div class="glass-title" onclick="showDinner()">Dinner</div>
+  <div class="card-content">
+    <ul>
+      <li>Helps the body recover after a long day</li>
+      <li>Supports muscle repair</li>
+      <li>Encourages family bonding time</li>
+      <li>Promotes better sleep quality</li>
+    </ul>
+  </div>
+</div>
+
+
+</section>
+
+
+<section id="breakfast-section" class="detail-section">
+
+<button class="back-btn" onclick="hideBreakfast()">← Back</button>
+
+<h2>🍳 12 Breakfast Dishes From Around The World</h2>
+
+<div class="detail-grid">
+
+<div class="detail-card" onclick="openFood('nasi-lemak')">
+  <div class="img-slot">
+    <img src="Nasi Lemak.jpg">
+  </div>
+  <h3>Nasi Lemak (Malaysia)</h3>
+  <ul>
+    <li>Long-lasting energy</li>
+    <li>Balanced fats & carbs</li>
+    <li>Cultural identity</li>
+    <li>Easily available</li>
+    <li>High calorie</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('pancakes')">
+  <div class="img-slot">
+    <img src="pancakes.jpg">
+  </div>
+  <h3>Pancakes (USA)</h3>
+  <ul>
+    <li>Easy to prepare</li>
+    <li>Kid-friendly</li>
+    <li>Quick energy</li>
+    <li>Versatile toppings</li>
+    <li>High sugar</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('croissant')">
+  <div class="img-slot">
+    <img src="croissant.jpg">
+  </div>
+  <h3>Croissant (France)</h3>
+  <ul>
+    <li>Light texture</li>
+    <li>Rich flavour</li>
+    <li>Convenient</li>
+    <li>Coffee pairing</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('tamago-gohan')">
+  <div class="img-slot">
+    <img src="tamago-gohan.jpg">
+  </div>
+  <h3>Tamago Gohan (Japan)</h3>
+  <ul>
+    <li>High protein</li>
+    <li>Simple</li>
+    <li>Comfort food</li>
+    <li>Fast prep</li>
+    <li>Raw egg risk</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('english-breakfast')">
+  <div class="img-slot">
+    <img src="english-breakfast.jpg">
+  </div>
+  <h3>English Breakfast (UK)</h3>
+  <ul>
+    <li>Very filling</li>
+    <li>High protein</li>
+    <li>Savoury</li>
+    <li>Long satiety</li>
+    <li>High salt</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('congee')">
+  <div class="img-slot">
+    <img src="congee.jpg">
+  </div>
+  <h3>Congee (China)</h3>
+  <ul>
+    <li>Easy digestion</li>
+    <li>Comfort food</li>
+    <li>Customisable</li>
+    <li>All ages</li>
+    <li>Low fibre</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('idli')">
+  <div class="img-slot">
+    <img src="idli.jpg">
+  </div>
+  <h3>Idli (India)</h3>
+  <ul>
+    <li>Steamed</li>
+    <li>Low fat</li>
+    <li>Fermented</li>
+    <li>Easy digestion</li>
+    <li>Plain taste</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('bubur-ayam')">
+  <div class="img-slot">
+    <img src="bubur-ayam.jpg">
+  </div>
+  <h3>Bubur Ayam (Indonesia)</h3>
+  <ul>
+    <li>Savoury</li>
+    <li>Filling</li>
+    <li>Affordable</li>
+    <li>Easy digestion</li>
+    <li>High sodium</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('chilaquiles')">
+  <div class="img-slot">
+    <img src="chilaquiles.jpg">
+  </div>
+  <h3>Chilaquiles (Mexico)</h3>
+  <ul>
+    <li>Rich flavours</li>
+    <li>Filling</li>
+    <li>Cultural</li>
+    <li>Uses leftovers</li>
+    <li>Spicy</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('simit')">
+  <div class="img-slot">
+    <img src="simit.jpg">
+  </div>
+  <h3>Simit (Turkey)</h3>
+  <ul>
+    <li>Affordable</li>
+    <li>Sesame rich</li>
+    <li>Street food</li>
+    <li>Easy meal</li>
+    <li>Dry texture</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('pao-de-queijo')">
+  <div class="img-slot">
+    <img src="pao-de-queijo.jpg">
+  </div>
+  <h3>Pão de Queijo (Brazil)</h3>
+  <ul>
+    <li>Gluten-free</li>
+    <li>Chewy</li>
+    <li>Cheese flavour</li>
+    <li>Popular</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('avocado-toast')">
+  <div class="img-slot">
+    <img src="avocado-toast.jpg">
+  </div>
+  <h3>Avocado Toast (Australia)</h3>
+  <ul>
+    <li>Healthy fats</li>
+    <li>Nutritious</li>
+    <li>Quick prep</li>
+    <li>Trendy</li>
+    <li>Low protein</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="section-top">
+  <a href="#top" class="arrow-up">↑ Back to top</a>
+</div>
+
+</section>
+
+
+<section id="lunch-section" class="detail-section">
+
+<button class="back-btn" onclick="hideLunch()">← Back</button>
+
+<h2>🍛 12 Lunch Dishes From Around The World</h2>
+
+<div class="detail-grid">
+
+
+<div class="detail-card" onclick="openFood('nasi-campur')">
+  <div class="img-slot">
+    <img src="nasi-campur.jpg">
+  </div>
+  <h3>Nasi Campur (Malaysia)</h3>
+  <ul>
+    <li>Complete balanced meal</li>
+    <li>Variety of dishes</li>
+    <li>Filling and satisfying</li>
+    <li>Affordable</li>
+    <li>High sodium</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('chicken-rice')">
+  <div class="img-slot">
+    <img src="chicken-rice.jpg">
+  </div>
+  <h3>Chicken Rice (Singapore)</h3>
+  <ul>
+    <li>High protein</li>
+    <li>Comfort food</li>
+    <li>Simple ingredients</li>
+    <li>Popular worldwide</li>
+    <li>Oily rice</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('bento-box')">
+  <div class="img-slot">
+    <img src="bento-box.jpg">
+  </div>
+  <h3>Bento Box (Japan)</h3>
+  <ul>
+    <li>Portion controlled</li>
+    <li>Visually appealing</li>
+    <li>Balanced nutrition</li>
+    <li>Convenient</li>
+    <li>Time consuming to prepare</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('biryani')">
+  <div class="img-slot">
+    <img src="biryani.jpg">
+  </div>
+  <h3>Biryani (India)</h3>
+  <ul>
+    <li>Aromatic spices</li>
+    <li>Very filling</li>
+    <li>Protein rich</li>
+    <li>Cultural dish</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('burger')">
+  <div class="img-slot">
+    <img src="burger.jpg">
+  </div>
+  <h3>Burger (USA)</h3>
+  <ul>
+    <li>Quick meal</li>
+    <li>High protein</li>
+    <li>Customisable</li>
+    <li>Popular worldwide</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('pad-thai')">
+  <div class="img-slot">
+    <img src="pad-thai.jpg">
+  </div>
+  <h3>Pad Thai (Thailand)</h3>
+  <ul>
+    <li>Balanced sweet-sour taste</li>
+    <li>Protein from shrimp/tofu</li>
+    <li>Street food favourite</li>
+    <li>Quick to cook</li>
+    <li>High sodium</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('tacos')">
+  <div class="img-slot">
+    <img src="tacos.jpg">
+  </div>
+  <h3>Tacos (Mexico)</h3>
+  <ul>
+    <li>Handheld convenience</li>
+    <li>Fresh ingredients</li>
+    <li>Strong flavours</li>
+    <li>Flexible fillings</li>
+    <li>Messy to eat</li>
+  </ul>
+</div>
+
+<!-- 8. Fish & Chips -->
+<div class="detail-card" onclick="openFood('fish-and-chips')">
+  <div class="img-slot">
+    <img src="fish-and-chips.jpg">
+  </div>
+  <h3>Fish & Chips (UK)</h3>
+  <ul>
+    <li>Classic comfort food</li>
+    <li>High protein</li>
+    <li>Filling portion</li>
+    <li>Crispy texture</li>
+    <li>Deep fried</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('kimbap')">
+  <div class="img-slot">
+    <img src="kimbap.jpg">
+  </div>
+  <h3>Kimbap (Korea)</h3>
+  <ul>
+    <li>Portable meal</li>
+    <li>Balanced ingredients</li>
+    <li>Low oil</li>
+    <li>Visually appealing</li>
+    <li>Needs fresh preparation</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('shawarma')">
+  <div class="img-slot">
+    <img src="shawarma.jpg">
+  </div>
+  <h3>Shawarma (Middle East)</h3>
+  <ul>
+    <li>High protein</li>
+    <li>Rich spices</li>
+    <li>Street food favourite</li>
+    <li>Filling wrap</li>
+    <li>High calories</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('ramen')">
+  <div class="img-slot">
+    <img src="ramen.jpg">
+  </div>
+  <h3>Ramen (Japan)</h3>
+  <ul>
+    <li>Comfort food</li>
+    <li>Rich broth</li>
+    <li>Custom toppings</li>
+    <li>Very filling</li>
+    <li>High sodium</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('pho')">
+  <div class="img-slot">
+    <img src="pho.jpg">
+  </div>
+  <h3>Pho (Vietnam)</h3>
+  <ul>
+    <li>Light yet filling</li>
+    <li>Aromatic broth</li>
+    <li>Low fat</li>
+    <li>Comfort food</li>
+    <li>Slow preparation</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="section-top">
+  <a href="#top" class="arrow-up">↑ Back to top</a>
+</div>
+
+</section>
+
+
+<section id="dessert-section" class="detail-section">
+
+<button class="back-btn" onclick="hideDessert()">← Back</button>
+
+<h2>🍰 12 Desserts From Around The World</h2>
+
+<div class="detail-grid">
+
+
+<div class="detail-card" onclick="openFood('chocolate-cake')">
+  <div class="img-slot"><img src="chocolate-cake.jpg"></div>
+  <h3>Chocolate Cake (Global)</h3>
+  <ul>
+    <li>Rich chocolate flavour</li>
+    <li>Satisfies sweet cravings</li>
+    <li>Popular worldwide</li>
+    <li>Comfort dessert</li>
+    <li>High sugar</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('cheesecake')">
+  <div class="img-slot"><img src="cheesecake.jpg"></div>
+  <h3>Cheesecake (USA)</h3>
+  <ul>
+    <li>Creamy texture</li>
+    <li>Rich flavour</li>
+    <li>Filling dessert</li>
+    <li>Pairs well with fruits</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('tiramisu')">
+  <div class="img-slot"><img src="tiramisu.jpg"></div>
+  <h3>Tiramisu (Italy)</h3>
+  <ul>
+    <li>Balanced coffee flavour</li>
+    <li>Soft layered texture</li>
+    <li>Elegant dessert</li>
+    <li>Popular worldwide</li>
+    <li>Contains caffeine</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('mochi')">
+  <div class="img-slot"><img src="mochi.jpg"></div>
+  <h3>Mochi (Japan)</h3>
+  <ul>
+    <li>Chewy texture</li>
+    <li>Light sweetness</li>
+    <li>Traditional dessert</li>
+    <li>Gluten-free</li>
+    <li>Sticky texture</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('macaron')">
+  <div class="img-slot"><img src="macaron.jpg"></div>
+  <h3>Macaron (France)</h3>
+  <ul>
+    <li>Colourful presentation</li>
+    <li>Light and airy</li>
+    <li>Delicate flavour</li>
+    <li>Gift-friendly</li>
+    <li>Fragile</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('gulab-jamun')">
+  <div class="img-slot"><img src="gulab-jamun.jpg"></div>
+  <h3>Gulab Jamun (India)</h3>
+  <ul>
+    <li>Soft syrup texture</li>
+    <li>Rich sweetness</li>
+    <li>Traditional dessert</li>
+    <li>Festive favourite</li>
+    <li>Very sweet</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('baklava')">
+  <div class="img-slot"><img src="baklava.jpg"></div>
+  <h3>Baklava (Turkey)</h3>
+  <ul>
+    <li>Nutty layers</li>
+    <li>Honey sweetness</li>
+    <li>Crispy texture</li>
+    <li>Cultural dessert</li>
+    <li>High calorie</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('creme-brulee')">
+  <div class="img-slot"><img src="creme-brulee.jpg"></div>
+  <h3>Crème Brûlée (France)</h3>
+  <ul>
+    <li>Creamy custard</li>
+    <li>Caramelised top</li>
+    <li>Elegant dessert</li>
+    <li>Rich flavour</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('pavlova')">
+  <div class="img-slot"><img src="pavlova.jpg"></div>
+  <h3>Pavlova (Australia)</h3>
+  <ul>
+    <li>Light meringue</li>
+    <li>Fresh fruit topping</li>
+    <li>Low fat base</li>
+    <li>Beautiful presentation</li>
+    <li>Fragile texture</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('halo-halo')">
+  <div class="img-slot"><img src="halo-halo.jpg"></div>
+  <h3>Halo-Halo (Philippines)</h3>
+  <ul>
+    <li>Refreshing dessert</li>
+    <li>Variety of textures</li>
+    <li>Colourful</li>
+    <li>Hot weather friendly</li>
+    <li>Very sweet</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('red-velvet')">
+  <div class="img-slot"><img src="red-velvet.jpg"></div>
+  <h3>Red Velvet Cake (USA)</h3>
+  <ul>
+    <li>Moist texture</li>
+    <li>Mild cocoa taste</li>
+    <li>Cream cheese frosting</li>
+    <li>Popular dessert</li>
+    <li>High sugar</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('seri-muka')">
+  <div class="img-slot"><img src="seri-muka.jpg"></div>
+  <h3>Kuih Seri Muka (Malaysia)</h3>
+  <ul>
+    <li>Traditional kuih</li>
+    <li>Coconut flavour</li>
+    <li>Soft layered texture</li>
+    <li>Local favourite</li>
+    <li>High sugar</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="section-top">
+  <a href="#top" class="arrow-up">↑ Back to top</a>
+</div>
+
+</section>
+
+<section id="dinner-section" class="detail-section">
+
+<button class="back-btn" onclick="hideDinner()">← Back</button>
+
+<h2>🍽️ 12 Dinner Dishes From Around The World</h2>
+
+<div class="detail-grid">
+
+
+<div class="detail-card" onclick="openFood('nasi-goreng')">
+  <div class="img-slot"><img src="nasi-goreng.jpg"></div>
+  <h3>Nasi Goreng (Malaysia)</h3>
+  <ul>
+    <li>Quick and filling meal</li>
+    <li>Balanced carbohydrates</li>
+    <li>Customisable ingredients</li>
+    <li>Popular comfort food</li>
+    <li>High oil content</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('steak')">
+  <div class="img-slot"><img src="steak.jpg"></div>
+  <h3>Steak (United States)</h3>
+  <ul>
+    <li>High protein content</li>
+    <li>Supports muscle repair</li>
+    <li>Rich flavour</li>
+    <li>Filling portion</li>
+    <li>Expensive cut</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('sushi')">
+  <div class="img-slot"><img src="sushi.jpg"></div>
+  <h3>Sushi (Japan)</h3>
+  <ul>
+    <li>Light dinner option</li>
+    <li>Fresh ingredients</li>
+    <li>Low fat</li>
+    <li>Visually appealing</li>
+    <li>Not very filling</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('carbonara')">
+  <div class="img-slot"><img src="carbonara.jpg"></div>
+  <h3>Pasta Carbonara (Italy)</h3>
+  <ul>
+    <li>Comfort food</li>
+    <li>Energy-rich carbs</li>
+    <li>Creamy flavour</li>
+    <li>Easy to prepare</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('curry-rice')">
+  <div class="img-slot"><img src="curry-rice.jpg"></div>
+  <h3>Curry & Rice (India)</h3>
+  <ul>
+    <li>Aromatic spices</li>
+    <li>Filling meal</li>
+    <li>Protein rich</li>
+    <li>Cultural dish</li>
+    <li>Spicy for some</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('hot-pot')">
+  <div class="img-slot"><img src="hot-pot.jpg"></div>
+  <h3>Hot Pot (China)</h3>
+  <ul>
+    <li>Shared dining experience</li>
+    <li>Variety of ingredients</li>
+    <li>Customisable</li>
+    <li>Social meal</li>
+    <li>Time consuming</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('tom-yum')">
+  <div class="img-slot"><img src="tom-yum.jpg"></div>
+  <h3>Tom Yum Soup (Thailand)</h3>
+  <ul>
+    <li>Light yet flavourful</li>
+    <li>Low calorie</li>
+    <li>Boosts appetite</li>
+    <li>Aromatic herbs</li>
+    <li>Very spicy</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('grilled-salmon')">
+  <div class="img-slot"><img src="grilled-salmon.jpg"></div>
+  <h3>Grilled Salmon (Norway)</h3>
+  <ul>
+    <li>Rich in omega-3</li>
+    <li>High protein</li>
+    <li>Healthy fats</li>
+    <li>Light dinner option</li>
+    <li>Expensive fish</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('fried-chicken')">
+  <div class="img-slot"><img src="fried-chicken.jpg"></div>
+  <h3>Fried Chicken (Global)</h3>
+  <ul>
+    <li>Crispy texture</li>
+    <li>High protein</li>
+    <li>Comfort food</li>
+    <li>Widely available</li>
+    <li>High fat</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('pizza')">
+  <div class="img-slot"><img src="pizza.jpg"></div>
+  <h3>Pizza (Italy)</h3>
+  <ul>
+    <li>Shared meal</li>
+    <li>Customisable toppings</li>
+    <li>Filling portion</li>
+    <li>Popular worldwide</li>
+    <li>High calories</li>
+  </ul>
+</div>
+
+
+<div class="detail-card" onclick="openFood('kimchi-stew')">
+  <div class="img-slot"><img src="kimchi-stew.jpg"></div>
+  <h3>Kimchi Stew (Korea)</h3>
+  <ul>
+    <li>Fermented benefits</li>
+    <li>Warm comfort meal</li>
+    <li>Rich flavour</li>
+    <li>Protein from tofu/meat</li>
+    <li>Strong smell</li>
+  </ul>
+</div>
+
+<div class="detail-card" onclick="openFood('roast-chicken')">
+  <div class="img-slot"><img src="roast-chicken.jpg"></div>
+  <h3>Roast Chicken (France)</h3>
+  <ul>
+    <li>Classic dinner dish</li>
+    <li>High protein</li>
+    <li>Family-style meal</li>
+    <li>Simple seasoning</li>
+    <li>Dry if overcooked</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="section-top">
+  <a href="#top" class="arrow-up">↑ Back to top</a>
+</div>
+
+</section>
+
+<footer>
+    <footer style="background-color: #350a06; padding: 10px 5px; text-align: center; color: white; Bainsley: sans-serif;">
+    
+    <p style="font-style: italic; margin-bottom: 20px;">Small steps, good food, and a grateful heart.</p>
+
+    <div style="max-width: 600px; margin: 0 auto 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <iframe 
+    src="https://maps.google.com/maps?q=Dubai&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+    width="100%" 
+    height="150" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy">
+</iframe>
+    </div>
+
+    <p style="line-height: 1.8;">
+        📧: <a href="mailto:vecnabiteslog@gmail.com" style="color: white; text-decoration: none; font-weight: bold;">vecnabiteslog@gmail.com</a><br>
+        📞: <a href="tel:01130622143" style="color: white; text-decoration: none; font-weight: bold;">01130622143</a>
+    </p>
+
+    <hr style="width: 50px; border: 1px solid white; margin: 20px auto;">
+
+    <p style="font-size: 0.9rem; opacity: 0.8;">© 2026 Vecna Bites Log </p>
+</footer>
+
+<script>
+function showBreakfast(){
+  document.getElementById("breakfast-section").style.display = "block";
+  document.getElementById("lunch-section").style.display = "none";
+  document.getElementById("breakfast-section").scrollIntoView({behavior:"smooth"});
+}
+
+function hideBreakfast(){
+  document.getElementById("breakfast-section").style.display = "none";
+}
+
+function showLunch(){
+  document.getElementById("lunch-section").style.display = "block";
+  document.getElementById("breakfast-section").style.display = "none";
+  document.getElementById("lunch-section").scrollIntoView({behavior:"smooth"});
+}
+
+function hideLunch(){
+  document.getElementById("lunch-section").style.display = "none";
+}
+</script>
+
+<script>
+function showDessert(){
+  document.getElementById("dessert-section").style.display = "block";
+  document.getElementById("breakfast-section").style.display = "none";
+  document.getElementById("lunch-section").style.display = "none";
+  document.getElementById("dessert-section").scrollIntoView({behavior:"smooth"});
+}
+
+function hideDessert(){
+  document.getElementById("dessert-section").style.display = "none";
+}
+</script>
+
+<script>
+function showDinner(){
+  document.getElementById("dinner-section").style.display = "block";
+  document.getElementById("breakfast-section").style.display = "none";
+  document.getElementById("lunch-section").style.display = "none";
+  document.getElementById("dessert-section").style.display = "none";
+  document.getElementById("dinner-section").scrollIntoView({behavior:"smooth"});
+}
+
+function hideDinner(){
+  document.getElementById("dinner-section").style.display = "none";
+}
+</script>
+
+</div>
+
+
+<script>
+function updateDateTime() {
+  const now = new Date();
+
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+
+  const date = now.toLocaleDateString('en-US', options);
+  const time = now.toLocaleTimeString('en-US');
+
+  document.getElementById("dateTime").innerHTML =
+    `${date}<br>${time}`;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+<audio id="bgMusic" loop>
+  <source src="aromatic.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-control" id="musicBtn" onclick="toggleMusic()">
+  ▶
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+let isPlaying = false;
+
+function toggleMusic() {
+  if (!isPlaying) {
+    music.play();
+    btn.innerHTML = "⏸";
+    isPlaying = true;
+  } else {
+    music.pause();
+    btn.innerHTML = "▶";
+    isPlaying = false;
+  }
+}
+
+document.addEventListener("click", function autoPlayOnce() {
+  if (!isPlaying) {
+    music.play();
+    btn.innerHTML = "⏸";
+    isPlaying = true;
+  }
+  document.removeEventListener("click", autoPlayOnce);
+});
+</script>
+
+<script>
+const foodData = {
+
+  "nasi-lemak":{
+    img:"Nasi Lemak.jpg",
+    title:"Nasi Lemak (Malaysia)",
+    meta:"⏱️ 15 min | 🔥 High calorie | 🍽️ Heavy meal",
+    desc:"Nasi Lemak is commonly eaten in the morning because it provides long-lasting energy through coconut rice, sambal, anchovies, eggs and peanuts. The combination of carbohydrates, fats and protein helps keep the body full for a longer period, making it suitable as a complete breakfast meal.",
+    why:"It is popular in Malaysia because it represents national identity, is affordable, widely available and deeply rooted in local food culture."
+  },
+
+  "pancakes":{
+    img:"pancakes.jpg",
+    title:"Pancakes (United States)",
+    meta:"⏱️ 10 min | 🔥 Medium calorie | 🍰 Sweet",
+    desc:"Pancakes are a popular breakfast choice because they are quick to prepare and provide instant energy through carbohydrates. They are often served with syrup, butter or fruits, making them enjoyable and comforting in the morning.",
+    why:"They are popular in the United States due to convenience, family-friendly preparation and flexibility in toppings."
+  },
+
+  "croissant":{
+    img:"croissant.jpg",
+    title:"Croissant (France)",
+    meta:"⏱️ 8 min | 🔥 High calorie | 🥐 Pastry",
+    desc:"Croissants are commonly eaten for breakfast due to their light yet energy-dense buttery layers. When paired with coffee, they offer a simple but satisfying start to the day.",
+    why:"They are popular in France as a symbol of traditional bakery culture and café lifestyle."
+  },
+
+  "tamago-gohan":{
+    img:"tamago-gohan.jpg",
+    title:"Tamago Gohan (Japan)",
+    meta:"⏱️ 5 min | 🥚 High protein | 🍚 Light meal",
+    desc:"Tamago Gohan consists of warm rice mixed with raw egg, providing protein and quick nourishment. It is simple, comforting and suitable for early mornings.",
+    why:"It is popular in Japan because of its simplicity, affordability and traditional home-style eating habits."
+  },
+
+  "english-breakfast":{
+    img:"english-breakfast.jpg",
+    title:"English Breakfast (United Kingdom)",
+    meta:"⏱️ 25 min | 🔥 High calorie | 🍳 Heavy meal",
+    desc:"English Breakfast includes eggs, sausages, beans and toast, providing a filling and protein-rich meal that helps sustain energy throughout the morning.",
+    why:"It is popular in the UK due to historical working-class traditions and long-established breakfast culture."
+  },
+
+  "congee":{
+    img:"congee.jpg",
+    title:"Congee (China)",
+    meta:"⏱️ 15 min | 🌾 Low calorie | 🍲 Light meal",
+    desc:"Congee is a rice porridge that is gentle on the stomach, making it ideal for breakfast. It is easy to digest and suitable for all age groups.",
+    why:"It is popular in China because it is comforting, affordable and highly adaptable with various toppings."
+  },
+
+  "idli":{
+    img:"idli.jpg",
+    title:"Idli (India)",
+    meta:"⏱️ 12 min | 🌿 Low fat | 🍽️ Light meal",
+    desc:"Idli is a steamed fermented rice cake that is light, nutritious and supports digestion. It provides steady energy without causing heaviness.",
+    why:"It is popular in India because it is healthy, affordable and commonly eaten as a traditional breakfast."
+  },
+
+  "bubur-ayam":{
+    img:"bubur-ayam.jpg",
+    title:"Bubur Ayam (Indonesia)",
+    meta:"⏱️ 15 min | 🍗 Medium calorie | 🍲 Comfort food",
+    desc:"Bubur Ayam is a chicken rice porridge eaten in the morning for its warmth and easy digestion. It is filling while remaining gentle on the stomach.",
+    why:"It is popular in Indonesia as a comforting and affordable street breakfast."
+  },
+
+  "chilaquiles":{
+    img:"chilaquiles.jpg",
+    title:"Chilaquiles (Mexico)",
+    meta:"⏱️ 20 min | 🔥 High calorie | 🌶️ Savoury",
+    desc:"Chilaquiles is a tortilla-based dish mixed with salsa and toppings. It provides strong flavours and sufficient energy to start the day.",
+    why:"It is popular in Mexico due to cultural heritage and the practical use of leftover tortillas."
+  },
+
+  "simit":{
+    img:"simit.jpg",
+    title:"Simit (Turkey)",
+    meta:"⏱️ 5 min | 🍞 Medium calorie | 🥯 Bread-based",
+    desc:"Simit is a sesame-coated bread ring commonly eaten for breakfast because it is portable, affordable and easy to eat on the go.",
+    why:"It is popular in Turkey as a traditional street breakfast paired with tea."
+  },
+
+  "pao-de-queijo":{
+    img:"pao-de-queijo.jpg",
+    title:"Pão de Queijo (Brazil)",
+    meta:"⏱️ 10 min | 🧀 High calorie | 🍞 Snack",
+    desc:"Pão de Queijo is a cheese bread that provides energy and comfort. Its chewy texture makes it enjoyable as a breakfast snack.",
+    why:"It is popular in Brazil because of its cheese-rich flavour and gluten-free ingredients."
+  },
+
+  "avocado-toast":{
+    img:"avocado-toast.jpg",
+    title:"Avocado Toast (Australia)",
+    meta:"⏱️ 8 min | 🥑 Medium calorie | 🌱 Healthy",
+    desc:"Avocado Toast is eaten for breakfast because it provides healthy fats, nutrients and quick preparation, making it ideal for modern lifestyles.",
+    why:"It is popular in Australia due to café culture and increasing health awareness."
+ },
+
+
+
+  "nasi-campur":{
+    img:"nasi-campur.jpg",
+    title:"Nasi Campur (Malaysia)",
+    meta:"⏱️ 20 min | 🍚 Balanced meal | 🍽️ Heavy lunch",
+    desc:"Nasi Campur is commonly eaten during lunch because it offers a balanced combination of rice, vegetables and protein dishes. It restores energy after a busy morning and keeps the body full until evening.",
+    why:"It is popular in Malaysia due to its variety, affordability and flexibility in choosing side dishes."
+  },
+
+  "chicken-rice":{
+    img:"chicken-rice.jpg",
+    title:"Chicken Rice (Singapore)",
+    meta:"⏱️ 18 min | 🍗 High protein | 🍽️ Filling meal",
+    desc:"Chicken Rice is eaten for lunch as it provides sufficient protein and carbohydrates to sustain energy throughout the afternoon.",
+    why:"It is popular in Singapore due to its simplicity, comforting taste and cultural significance."
+  },
+
+  "bento-box":{
+    img:"bento-box.jpg",
+    title:"Bento Box (Japan)",
+    meta:"⏱️ 25 min | 🍱 Balanced portions | 🍽️ Moderate meal",
+    desc:"Bento Box is a structured lunch meal with controlled portions of rice, protein and vegetables, making it nutritious and visually appealing.",
+    why:"It is popular in Japan because it promotes balanced eating and convenient meal preparation."
+  },
+
+  "biryani":{
+    img:"biryani.jpg",
+    title:"Biryani (India)",
+    meta:"⏱️ 30 min | 🔥 High calorie | 🍛 Heavy meal",
+    desc:"Biryani is eaten during lunch due to its rich spices and filling nature, providing long-lasting energy for the rest of the day.",
+    why:"It is popular in India because of its strong flavours, festive value and cultural importance."
+  },
+
+  "burger":{
+    img:"burger.jpg",
+    title:"Burger (United States)",
+    meta:"⏱️ 10 min | 🍔 High protein | 🍽️ Fast meal",
+    desc:"Burgers are eaten at lunch because they are quick, satisfying and easy to customise according to preference.",
+    why:"They are popular in the United States due to fast-food culture and convenience."
+  },
+
+  "pad-thai":{
+    img:"pad-thai.jpg",
+    title:"Pad Thai (Thailand)",
+    meta:"⏱️ 15 min | 🍜 Medium calorie | 🍽️ Savoury meal",
+    desc:"Pad Thai is eaten for lunch as it combines carbohydrates and protein, providing a flavourful and energising meal.",
+    why:"It is popular in Thailand because it is affordable, widely available and culturally iconic."
+  },
+
+  "tacos":{
+    img:"tacos.jpg",
+    title:"Tacos (Mexico)",
+    meta:"⏱️ 12 min | 🌮 Medium calorie | 🍽️ Flexible meal",
+    desc:"Tacos are suitable for lunch because they are easy to eat and can be filled with various nutritious ingredients.",
+    why:"They are popular in Mexico due to street food culture and strong traditional roots."
+  },
+
+  "fish-and-chips":{
+    img:"fish-and-chips.jpg",
+    title:"Fish & Chips (United Kingdom)",
+    meta:"⏱️ 20 min | 🍟 High calorie | 🍽️ Comfort meal",
+    desc:"Fish and Chips is eaten for lunch as a hearty and satisfying meal that keeps the body energised.",
+    why:"It is popular in the UK due to its historical background and national food identity."
+  },
+
+  "kimbap":{
+    img:"kimbap.jpg",
+    title:"Kimbap (Korea)",
+    meta:"⏱️ 15 min | 🍙 Balanced meal | 🍽️ Light lunch",
+    desc:"Kimbap is eaten during lunch because it is portable, nutritious and easy to consume without utensils.",
+    why:"It is popular in Korea due to convenience and suitability for busy lifestyles."
+  },
+
+  "shawarma":{
+    img:"shawarma.jpg",
+    title:"Shawarma (Middle East)",
+    meta:"⏱️ 15 min | 🌯 High protein | 🍽️ Filling wrap",
+    desc:"Shawarma is eaten for lunch because it is filling, flavourful and easy to eat on the go.",
+    why:"It is popular in Middle Eastern countries due to street food culture and rich spices."
+  },
+
+  "ramen":{
+    img:"ramen.jpg",
+    title:"Ramen (Japan)",
+    meta:"⏱️ 20 min | 🍜 High sodium | 🍽️ Comfort meal",
+    desc:"Ramen is eaten at lunch because it provides warmth, comfort and sustained energy through noodles and broth.",
+    why:"It is popular in Japan due to affordability and widespread availability."
+  },
+
+  "pho":{
+    img:"pho.jpg",
+    title:"Pho (Vietnam)",
+    meta:"⏱️ 25 min | 🍲 Low fat | 🍽️ Light yet filling",
+    desc:"Pho is commonly eaten during lunch because it is light but filling, helping digestion while restoring energy.",
+    why:"It is popular in Vietnam due to its aromatic broth and cultural significance."
+  },
+
+
+  "chocolate-cake":{
+    img:"chocolate-cake.jpg",
+    title:"Chocolate Cake (Global)",
+    meta:"⏱️ 15 min | 🍫 High sugar | 🍰 Sweet dessert",
+    desc:"Chocolate Cake is enjoyed as a dessert because it satisfies sweet cravings and enhances overall dining satisfaction. Its rich cocoa flavour provides comfort and indulgence after meals.",
+    why:"It is popular worldwide due to its universal appeal, rich taste and availability across cultures."
+  },
+
+  "cheesecake":{
+    img:"cheesecake.jpg",
+    title:"Cheesecake (United States)",
+    meta:"⏱️ 20 min | 🧀 High fat | 🍰 Creamy dessert",
+    desc:"Cheesecake is eaten as a dessert due to its creamy texture and rich flavour, making it filling and satisfying.",
+    why:"It is popular in the United States because of its versatility and pairing with fruits or sauces."
+  },
+
+  "tiramisu":{
+    img:"tiramisu.jpg",
+    title:"Tiramisu (Italy)",
+    meta:"⏱️ 18 min | ☕ Contains caffeine | 🍰 Layered dessert",
+    desc:"Tiramisu is enjoyed as a dessert because of its balanced coffee and cocoa flavour, offering a light yet indulgent experience.",
+    why:"It is popular in Italy due to its elegance and traditional culinary heritage."
+  },
+
+  "mochi":{
+    img:"mochi.jpg",
+    title:"Mochi (Japan)",
+    meta:"⏱️ 10 min | 🌾 Gluten-free | 🍡 Chewy dessert",
+    desc:"Mochi is eaten as a dessert because of its chewy texture and mild sweetness, making it enjoyable without being overwhelming.",
+    why:"It is popular in Japan due to traditional customs and cultural celebrations."
+  },
+
+  "macaron":{
+    img:"macaron.jpg",
+    title:"Macaron (France)",
+    meta:"⏱️ 12 min | 🌈 Colourful | 🍬 Light dessert",
+    desc:"Macarons are enjoyed as desserts due to their delicate texture and visually appealing appearance.",
+    why:"They are popular in France because of patisserie culture and refined dessert craftsmanship."
+  },
+
+  "gulab-jamun":{
+    img:"gulab-jamun.jpg",
+    title:"Gulab Jamun (India)",
+    meta:"⏱️ 15 min | 🍯 Very sweet | 🍮 Syrup dessert",
+    desc:"Gulab Jamun is eaten as a dessert because of its soft texture and rich syrup sweetness, often served warm.",
+    why:"It is popular in India due to festive traditions and cultural significance."
+  },
+
+  "baklava":{
+    img:"baklava.jpg",
+    title:"Baklava (Turkey)",
+    meta:"⏱️ 20 min | 🥜 High calorie | 🍰 Nut-based dessert",
+    desc:"Baklava is enjoyed as a dessert because of its crispy layers and honey sweetness that provide indulgence.",
+    why:"It is popular in Turkey due to long-standing cultural heritage and ceremonial serving."
+  },
+
+  "creme-brulee":{
+    img:"creme-brulee.jpg",
+    title:"Crème Brûlée (France)",
+    meta:"⏱️ 25 min | 🍮 High fat | 🍰 Custard dessert",
+    desc:"Crème Brûlée is eaten as a dessert because of its creamy custard base combined with caramelised sugar topping.",
+    why:"It is popular in France due to fine-dining traditions and elegant presentation."
+  },
+
+  "pavlova":{
+    img:"pavlova.jpg",
+    title:"Pavlova (Australia)",
+    meta:"⏱️ 18 min | 🍓 Low fat | 🍰 Light dessert",
+    desc:"Pavlova is eaten as a dessert because it is light, airy and topped with fresh fruits, making it refreshing.",
+    why:"It is popular in Australia due to celebration culture and preference for lighter desserts."
+  },
+
+  "halo-halo":{
+    img:"halo-halo.jpg",
+    title:"Halo-Halo (Philippines)",
+    meta:"⏱️ 10 min | 🍧 Very sweet | 🍨 Cold dessert",
+    desc:"Halo-Halo is enjoyed as a dessert because it cools the body and offers various textures and flavours.",
+    why:"It is popular in the Philippines due to hot climate and colourful dessert culture."
+  },
+
+  "red-velvet":{
+    img:"red-velvet.jpg",
+    title:"Red Velvet Cake (United States)",
+    meta:"⏱️ 15 min | 🍰 High sugar | 🎂 Soft cake",
+    desc:"Red Velvet Cake is eaten as a dessert because of its moist texture and cream cheese frosting.",
+    why:"It is popular in the United States due to its unique colour and rich taste."
+  },
+
+  "seri-muka":{
+    img:"seri-muka.jpg",
+    title:"Kuih Seri Muka (Malaysia)",
+    meta:"⏱️ 12 min | 🥥 Traditional kuih | 🍰 Sweet dessert",
+    desc:"Kuih Seri Muka is enjoyed as a dessert because of its soft layered texture and coconut sweetness.",
+    why:"It is popular in Malaysia due to traditional roots and cultural identity."
+  },
+
+
+  "nasi-goreng":{
+    img:"nasi-goreng.jpg",
+    title:"Nasi Goreng (Malaysia)",
+    meta:"⏱️ 15 min | 🍳 Medium calorie | 🍽️ Comfort meal",
+    desc:"Nasi Goreng is commonly eaten for dinner because it is filling, quick to prepare and provides sufficient energy without being too heavy before sleep.",
+    why:"It is popular in Malaysia due to its versatility, affordability and strong local flavours."
+  },
+
+  "steak":{
+    img:"steak.jpg",
+    title:"Steak (United States)",
+    meta:"⏱️ 25 min | 🥩 High protein | 🍽️ Heavy meal",
+    desc:"Steak is eaten during dinner because it supports muscle recovery and provides high protein after a long day.",
+    why:"It is popular in the United States due to grilling culture and premium dining traditions."
+  },
+
+  "sushi":{
+    img:"sushi.jpg",
+    title:"Sushi (Japan)",
+    meta:"⏱️ 20 min | 🐟 Low fat | 🍽️ Light dinner",
+    desc:"Sushi is suitable for dinner because it is light, nutritious and easy to digest, making it ideal for evening meals.",
+    why:"It is popular in Japan due to freshness, balance and strong culinary heritage."
+  },
+
+  "carbonara":{
+    img:"carbonara.jpg",
+    title:"Pasta Carbonara (Italy)",
+    meta:"⏱️ 18 min | 🍝 High carb | 🍽️ Comfort dinner",
+    desc:"Pasta Carbonara is eaten for dinner because it provides energy and comfort, especially after a tiring day.",
+    why:"It is popular in Italy due to simple ingredients and traditional home cooking."
+  },
+
+  "curry-rice":{
+    img:"curry-rice.jpg",
+    title:"Curry & Rice (India)",
+    meta:"⏱️ 20 min | 🌶️ Spicy | 🍽️ Filling meal",
+    desc:"Curry and Rice is eaten for dinner because it is satisfying and rich in spices that enhance appetite.",
+    why:"It is popular in India due to cultural dining habits and spice-based cuisine."
+  },
+
+  "hot-pot":{
+    img:"hot-pot.jpg",
+    title:"Hot Pot (China)",
+    meta:"⏱️ 30 min | 🍲 Shared meal | 🍽️ Social dining",
+    desc:"Hot Pot is enjoyed during dinner as it encourages sharing, bonding and slow dining experiences.",
+    why:"It is popular in China because of communal culture and variety of ingredients."
+  },
+
+  "tom-yum":{
+    img:"tom-yum.jpg",
+    title:"Tom Yum Soup (Thailand)",
+    meta:"⏱️ 15 min | 🌶️ Spicy | 🍽️ Light dinner",
+    desc:"Tom Yum Soup is eaten for dinner because it is light yet flavourful, stimulating digestion.",
+    why:"It is popular in Thailand due to bold flavours and herbal ingredients."
+  },
+
+  "grilled-salmon":{
+    img:"grilled-salmon.jpg",
+    title:"Grilled Salmon (Norway)",
+    meta:"⏱️ 20 min | 🐟 High protein | 🍽️ Healthy meal",
+    desc:"Grilled Salmon is suitable for dinner as it is rich in omega-3 and supports heart health.",
+    why:"It is popular in Norway due to seafood abundance and healthy eating culture."
+  },
+
+  "fried-chicken":{
+    img:"fried-chicken.jpg",
+    title:"Fried Chicken (Global)",
+    meta:"⏱️ 15 min | 🍗 High calorie | 🍽️ Comfort food",
+    desc:"Fried Chicken is often eaten for dinner as a satisfying comfort meal that is widely enjoyed.",
+    why:"It is popular globally due to crispy texture and universal taste appeal."
+  },
+
+  "pizza":{
+    img:"pizza.jpg",
+    title:"Pizza (Italy)",
+    meta:"⏱️ 20 min | 🍕 High calorie | 🍽️ Shared meal",
+    desc:"Pizza is eaten for dinner because it is filling, easy to share and suitable for gatherings.",
+    why:"It is popular in Italy and worldwide due to flexibility in toppings and flavours."
+  },
+
+  "kimchi-stew":{
+    img:"kimchi-stew.jpg",
+    title:"Kimchi Stew (Korea)",
+    meta:"⏱️ 25 min | 🌶️ Fermented | 🍽️ Warm meal",
+    desc:"Kimchi Stew is eaten for dinner because it is warming and comforting, especially during cold evenings.",
+    why:"It is popular in Korea due to fermented food culture and home-style cooking."
+  },
+
+  "roast-chicken":{
+    img:"roast-chicken.jpg",
+    title:"Roast Chicken (France)",
+    meta:"⏱️ 30 min | 🍗 High protein | 🍽️ Family meal",
+    desc:"Roast Chicken is eaten for dinner because it is hearty and suitable for family gatherings.",
+    why:"It is popular in France due to traditional roasting techniques and simple seasoning."
+  }
+};
+</script>
+
+<script>
+function openFood(key){
+  const data = foodData[key];
+  if(!data) return;
+
+  document.getElementById("modalImg").src = data.img;
+  document.getElementById("modalTitle").innerText = data.title;
+  document.getElementById("modalMeta").innerText = data.meta;
+  document.getElementById("modalDesc").innerText = data.desc;
+  document.getElementById("modalWhy").innerText = data.why;
+
+  document.getElementById("foodModal").classList.add("active");
+}
+
+function closeModal(){
+  document.getElementById("foodModal").classList.remove("active");
+}
+</script>
+
+<div class="food-modal" id="foodModal">
+  <div class="modal-overlay" onclick="closeModal()"></div>
+
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeModal()">×</span>
+
+    <div class="modal-image">
+      <img id="modalImg" src="">
+    </div>
+
+    <div class="modal-content">
+      <h2 id="modalTitle"></h2>
+
+      <div class="modal-meta" id="modalMeta"></div>
+
+      <p id="modalDesc"></p>
+
+      <h4>Why popular in this country?</h4>
+      <p id="modalWhy"></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

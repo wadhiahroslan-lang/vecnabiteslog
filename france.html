@@ -1,0 +1,380 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite n View - French Cuisine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tamarind: #630C0D; 
+            --cream: #FFF5F7;
+            --pink-light: #FFD1DC;
+        }
+
+        body {
+            background-image: url('fwall.jpg');
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        
+        .simple-header {
+            background: var(--tamarind);
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        .emoji-container {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: pulseEmoji 2s infinite;
+        }
+
+        @keyframes pulseEmoji {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        
+        .title-nav-container {
+            max-width: 950px;
+            margin: -60px auto 40px;
+            background: white;
+            border: 4px solid var(--tamarind);
+            border-radius: 30px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--tamarind);
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .back-symbol {
+            text-decoration: none;
+            color: var(--tamarind);
+            font-size: 1.8rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-symbol:hover {
+            transform: translateX(-5px);
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6 kotak selari */
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--tamarind);
+            border: 2px solid var(--tamarind);
+            padding: 8px 5px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            background: var(--tamarind);
+            color: white;
+        }
+
+        
+        .search-wrapper {
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border: 2px solid var(--tamarind);
+            border-radius: 30px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            outline: none;
+            flex-grow: 1;
+        }
+
+        .search-box button {
+            background: var(--tamarind);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+        
+        .review-section {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .food-card {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 25px;
+            border: 2px solid var(--pink-light);
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            align-items: center;
+        }
+
+        .food-card:hover {
+            transform: scale(1.02) translateX(10px);
+            border-color: var(--tamarind);
+            box-shadow: -10px 10px 0px var(--tamarind);
+        }
+
+        .food-img-box {
+            width: 180px;
+            height: 180px; 
+            flex-shrink: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--tamarind);
+        }
+
+        .food-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .review-box {
+            flex-grow: 1;
+            height: 180px; 
+            padding: 20px;
+            background: #fff9fa;
+            border-radius: 20px;
+            border-left: 5px solid var(--tamarind);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .food-name {
+            color: var(--tamarind);
+            margin: 0 0 5px 0;
+            font-size: 1.4rem;
+        }
+
+        .rating-stars {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--tamarind);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .nav-grid { grid-template-columns: repeat(3, 1fr); }
+            .food-card { flex-direction: column; text-align: center; height: auto; }
+            .food-img-box { width: 100%; height: 200px; }
+            .review-box { width: 100%; height: auto; border-left: none; border-top: 5px solid var(--tamarind); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="simple-header">
+        <div class="emoji-container">&#129360 &#127857 &#129368 &#129360 &#127857 &#129368</div>
+        <p>VecnaBitesLog Review Pages</p>
+    </div>
+
+    <div class="title-nav-container">
+        <h1 class="main-title">French Cuisine</h1>
+        <div class="nav-wrapper">
+            <a href="review.html" class="back-symbol" title="Back to Reviews">&#128281</a>
+            <nav class="nav-grid">
+                <a href="mfood.html" class="nav-item">Malaysian Cuisine</a>
+                <a href="thai.html" class="nav-item">Thai Cuisine</a>
+                <a href="japan.html" class="nav-item">Japanese Cuisine</a>
+                <a href="korea.html" class="nav-item">Korean Cuisine</a>
+                <a href="italy.html" class="nav-item">Italian Cuisine</a>
+                <a href="france.html" class="nav-item">France Cuisine</a>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search dish name...">
+            <button type="button" onclick="searchFood()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="review-section" id="foodList">
+        <div class="food-card">
+            <div class="food-img-box"><img src="crois.webp"></div>
+            <div class="review-box">
+                <h3 class="food-name">Croissant</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The benchmark of a true French bakery. A perfect croissant should be a golden-brown crescent with a shell that shatters into a thousand flakes when you bite into it. Inside, you should find a beautiful, airy honeycomb structure that smells intensely of high-quality butter. It’s light, airy, and the ultimate breakfast luxury."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="pain.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Pain au Chocolat</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"Basically a croissant’s decadent cousin. It uses the same buttery, laminated dough but is shaped into a square and tucked with one or two bars of dark chocolate. The contrast between the salty, buttery layers and the semi-sweet, slightly melted chocolate center is a match made in heaven. Best enjoyed warm!"</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="macaron.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Macarons</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"Tiny, colorful works of art. These almond-flour meringue cookies are notoriously difficult to make, requiring a perfect 'foot' and a smooth, eggshell-thin top. They are crunchy on the outside and chewy in the middle, sandwiched together with flavored ganache or buttercream. They are delicate, sweet, and incredibly elegant."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="boeuf.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Boeuf Bourguignon</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The ultimate beef stew. It’s a rustic, soul-warming dish where chunks of beef are slow-cooked in red wine until they literally fall apart at the touch of a fork. The sauce is deep, velvety, and intensely savory, flavored with pearl onions, mushrooms, and bits of salty bacon (lardons). It’s a masterpiece of patience and flavor depth."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="rata.jpeg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Ratatouille</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"A vibrant celebration of summer vegetables. This Provencal dish transforms humble ingredients like eggplant, zucchini, bell peppers, and tomatoes into a colorful, stewed delight. It’s light, healthy, and packed with the aroma of fresh herbs like thyme and rosemary. It proves that French food doesn't always have to be heavy to be incredibly flavorful."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="creme.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Crème Brûlée</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The queen of French desserts. It’s a simple contrast of temperatures and textures. Underneath is a cold, silky-smooth vanilla bean custard, while the top is a thin, brittle layer of burnt sugar. The most satisfying part is the 'crack' sound as you break the caramel glass with your spoon, followed by the creamy, melt-in-your-mouth sweetness."</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+		<footer style="background-color: #350a06; padding: 0.1px 5px; text-align: center; color: white; Bainsley: sans-serif;">
+    
+    <p style="font-style: italic; margin-bottom: 20px;">Small steps, good food, and a grateful heart.</p>
+
+    <div style="max-width: 600px; margin: 0 auto 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <iframe 
+    src="https://maps.google.com/maps?q=Dubai&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+    width="100%" 
+    height="150" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy">
+</iframe>
+    </div>
+
+    <p style="line-height: 1.8;">
+        📧: <a href="mailto:vecnabiteslog@gmail.com" style="color: white; text-decoration: none; font-weight: bold;">vecnabiteslog@gmail.com</a><br>
+        📞: <a href="tel:01130622143" style="color: white; text-decoration: none; font-weight: bold;">01130622143</a>
+    </p>
+
+    <hr style="width: 50px; border: 1px solid white; margin: 10px auto;">
+
+    <p style="font-size: 0.9rem; opacity: 0.8;">© 2026 Vecna Bites Log </p>
+</footer>
+
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function searchFood() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('food-card');
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].querySelector('.food-name').innerText.toLowerCase();
+                cards[i].style.display = name.includes(input) ? "flex" : "none";
+            }
+        }
+        document.getElementById('searchInput').addEventListener('keyup', searchFood);
+    </script>
+
+</body>
+</html>

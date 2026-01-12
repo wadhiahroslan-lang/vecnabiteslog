@@ -1,0 +1,379 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite n View -Italian Cuisine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tamarind: #630C0D; 
+            --cream: #FFF5F7;
+            --pink-light: #FFD1DC;
+        }
+
+        body {
+            background-image: url('iwall.jpg');
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        
+        .simple-header {
+            background: var(--tamarind);
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        .emoji-container {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: pulseEmoji 2s infinite;
+        }
+
+        @keyframes pulseEmoji {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        
+        .title-nav-container {
+            max-width: 950px;
+            margin: -60px auto 40px;
+            background: white;
+            border: 4px solid var(--tamarind);
+            border-radius: 30px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--tamarind);
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+        }
+
+        
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .back-symbol {
+            text-decoration: none;
+            color: var(--tamarind);
+            font-size: 1.8rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-symbol:hover {
+            transform: translateX(-5px);
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6 kotak selari */
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--tamarind);
+            border: 2px solid var(--tamarind);
+            padding: 8px 5px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            background: var(--tamarind);
+            color: white;
+        }
+
+        
+        .search-wrapper {
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border: 2px solid var(--tamarind);
+            border-radius: 30px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            outline: none;
+            flex-grow: 1;
+        }
+
+        .search-box button {
+            background: var(--tamarind);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+        
+        .review-section {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .food-card {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 25px;
+            border: 2px solid var(--pink-light);
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            align-items: center;
+        }
+
+        .food-card:hover {
+            transform: scale(1.02) translateX(10px);
+            border-color: var(--tamarind);
+            box-shadow: -10px 10px 0px var(--tamarind);
+        }
+
+        .food-img-box {
+            width: 180px;
+            height: 180px; /* Standard Tinggi */
+            flex-shrink: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--tamarind);
+        }
+
+        .food-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Gambar takkan penyet */
+        }
+
+        .review-box {
+            flex-grow: 1;
+            height: 180px; /* Samakan dengan tinggi gambar */
+            padding: 20px;
+            background: #fff9fa;
+            border-radius: 20px;
+            border-left: 5px solid var(--tamarind);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .food-name {
+            color: var(--tamarind);
+            margin: 0 0 5px 0;
+            font-size: 1.4rem;
+        }
+
+        .rating-stars {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--tamarind);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .nav-grid { grid-template-columns: repeat(3, 1fr); }
+            .food-card { flex-direction: column; text-align: center; height: auto; }
+            .food-img-box { width: 100%; height: 200px; }
+            .review-box { width: 100%; height: auto; border-left: none; border-top: 5px solid var(--tamarind); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="simple-header">
+        <div class="emoji-container">&#127836 &#127837 &#129368 &#127836 &#127837 &#129368</div>
+        <p>VecnaBitesLog Review Pages</p>
+    </div>
+
+    <div class="title-nav-container">
+        <h1 class="main-title">Italian Cuisine</h1>
+        <div class="nav-wrapper">
+            <a href="review.html" class="back-symbol" title="Back to Reviews">&#128281</a>
+            <nav class="nav-grid">
+                <a href="mfood.html" class="nav-item">Malaysian Cuisine</a>
+                <a href="thai.html" class="nav-item">Thai Cuisine</a>
+                <a href="japan.html" class="nav-item">Japanese Cuisine</a>
+                <a href="korea.html" class="nav-item">Korean Cuisine</a>
+                <a href="italy.html" class="nav-item">Italian Cuisine</a>
+                <a href="france.html" class="nav-item">French Cuisine</a>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search dish name...">
+            <button type="button" onclick="searchFood()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="review-section" id="foodList">
+        <div class="food-card">
+            <div class="food-img-box"><img src="carbonara.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Carbonara</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The ultimate debate in a bowl. You’ll find two versions: the 'authentic' Italian way using just egg yolks and cheese for a silky, golden coating, and the popular 'cafe style' which is rich, white, and heavy on the cream. Whichever you choose, it is the definition of indulgence. A good Carbonara should feel velvety and luxurious, with the saltiness of the beef bacon cutting through the richness."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="pizza.webp"></div>
+            <div class="review-box">
+                <h3 class="food-name">Margherita Pizza</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"A masterclass in simplicity. This is the true test of any pizzeria. With just three main toppings—tomato sauce, fresh mozzarella, and basil—there is nowhere for poor ingredients to hide. When done right in a wood-fired oven, the crust is thin and charred (leopard-spotted), the cheese is bubbly, and the tomato sauce provides a bright, acidic zing that keeps you coming back for another slice."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="lasagna.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Lasagna</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The king of comfort pasta. It’s all about the layers—soft sheets of pasta sandwiched between a robust, slow-cooked meat sauce (Bolognese) and a creamy Bechamel sauce. Baked until the cheese on top turns into a golden, crispy crust, it’s a hearty and heavy meal. It’s the kind of dish that tastes like a warm hug, especially when the layers stay perfectly intact as you slice through."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="mushroom.jpeg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Mushroom Risotto</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"A dish that requires patience but rewards you with pure elegance. Unlike regular rice, risotto is cooked slowly until it reaches a perfectly creamy, 'al dente' consistency where each grain still has a slight bite. The earthy, woody flavor of the mushrooms combined with a generous amount of Parmesan and butter makes this a sophisticated, umami-packed vegetarian delight."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="tiramisu.webp"></div>
+            <div class="review-box">
+                <h3 class="food-name">Tiramisu</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The perfect 'pick-me-up' dessert. This no-bake classic features layers of ladyfinger biscuits soaked in strong espresso, topped with a cloud-like mascarpone cream. It’s a beautiful balance of bitter coffee and sweet, velvety cheese, finished with a heavy dusting of cocoa powder. It’s light, airy, and the best way to end any Italian meal on a high note."</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div class="food-img-box"><img src="brus.jpg"></div>
+            <div class="review-box">
+                <h3 class="food-name">Bruschetta</h3>
+                <div class="rating-stars">&#11088 &#11088 &#11088 &#11088 &#11088</div>
+                <p class="review-text">"The quintessential Italian appetizer. It’s essentially summer on a slice of bread. Slices of rustic sourdough are grilled until crunchy, rubbed with a raw garlic clove, and piled high with marinated diced tomatoes and fresh basil. The contrast between the warm, garlic-infused bread and the cold, juicy tomatoes is incredibly refreshing and sets the stage for the rest of the meal."</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+	
+	<footer style="background-color: #350a06; padding: 0.1px 5px; text-align: center; color: white; Bainsley: sans-serif;">
+    
+    <p style="font-style: italic; margin-bottom: 20px;">Small steps, good food, and a grateful heart.</p>
+
+    <div style="max-width: 600px; margin: 0 auto 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <iframe 
+    src="https://maps.google.com/maps?q=Dubai&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+    width="100%" 
+    height="150" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy">
+</iframe>
+    </div>
+
+    <p style="line-height: 1.8;">
+        📧: <a href="mailto:vecnabiteslog@gmail.com" style="color: white; text-decoration: none; font-weight: bold;">vecnabiteslog@gmail.com</a><br>
+        📞: <a href="tel:01130622143" style="color: white; text-decoration: none; font-weight: bold;">01130622143</a>
+    </p>
+
+    <hr style="width: 50px; border: 1px solid white; margin: 10px auto;">
+
+    <p style="font-size: 0.9rem; opacity: 0.8;">© 2026 Vecna Bites Log </p>
+</footer>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function searchFood() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('food-card');
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].querySelector('.food-name').innerText.toLowerCase();
+                cards[i].style.display = name.includes(input) ? "flex" : "none";
+            }
+        }
+        document.getElementById('searchInput').addEventListener('keyup', searchFood);
+    </script>
+
+</body>
+</html>

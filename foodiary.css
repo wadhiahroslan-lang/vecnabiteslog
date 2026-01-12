@@ -1,0 +1,102 @@
+
+@keyframes glowPulse { 0% { text-shadow:0 0 10px #dcd0bc; } 50% { text-shadow:0 0 25px #ffebcd; } 100% { text-shadow:0 0 10px #dcd0bc; } }
+
+	body {
+         margin: 0; 
+         font-family: 'Bainsley', sans-serif;
+         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('food.jpg') no-repeat center center fixed;
+         background-size: cover; 
+         color: #dcd0bc; 
+         overflow-x: hidden;
+         scroll-behavior: smooth;
+}
+	.top-wrapper {
+          background-color: #350a06; 
+          position: relative; 
+          z-index: 100; width: 100%;
+ }
+	.live-info { 
+          display: flex; 
+          justify-content: flex-end;
+          padding: 10px 30px 0; 
+          font-size: 13px; 
+          font-weight: bold; 
+}
+	.navbar {
+          display: flex;
+          justify-content: center;
+          align-items: center; 
+          gap: 15px;
+          padding: 10px 5px; 
+}
+	.nav-item {
+          font-size: 16px; 
+          font-weight: bold; 
+          color: #dcd0bc;
+          text-decoration: none; 
+          padding: 6px 15px; 
+          border-radius: 50px; 
+          transition: 0.3s;
+ }
+	.nav-item:hover, .nav-item.active {
+          background-color: #dcd0bc; 
+          color: #350a06; 
+}
+	.header-text h1 {
+          font-family: 'Distant Galaxy', sans-serif;
+          font-size: 70px; 
+          text-align: center;
+          margin: 0;
+          padding: 20px 10px;
+          animation: glowPulse 3s infinite;
+}
+	.diary-grid { 
+         display: grid !important; 
+         grid-template-columns: repeat(5, 1fr) !important;
+         gap: 20px; 
+         width: 95%; 
+         max-width: 1400px;
+         margin: 40px auto; 
+}
+	.diary-card {
+          background: rgba(53, 10, 6, 0.95); 
+          border-radius: 15px;
+          overflow: hidden;
+          border: 1px solid rgba(220, 208, 188, 0.2); 
+          cursor: pointer;
+          transition: transform 0.4s ease; 
+          height: 350px;
+          display: flex; 
+          flex-direction: column;
+}
+	.diary-card img {
+          width: 100%; 
+          height: 160px;
+          object-fit: cover;
+ }
+	.card-body {
+          padding: 15px;
+          text-align: center; 
+          display: flex; 
+          flex-direction: column;
+          justify-content: flex-start; 
+}
+	.card-title { 
+          font-size: 14px; 
+          color: #ffebcd; 
+          margin-bottom: 5px;
+ }
+	.card-desc { 
+          font-size: 11px; 
+          margin: 2px 0; 
+          line-height: 1.2;
+ }
+	.is-hidden {
+          display: none !important; 
+}
+	footer { 
+         background-color: #350a06 !important;
+         padding: 10px 5px;
+         text-align: center;
+         border-top: 2px solid #dcd0bc; 
+}
