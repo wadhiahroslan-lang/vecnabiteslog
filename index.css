@@ -92,7 +92,7 @@ body, html {
 .content { flex: 1; position: relative; background: white; padding: 40px; display: flex; flex-direction: column; }
 
 .vertical-title {
-    position: absolute; left: 25px; top: 40px;
+    position: absolute; left: 10px; top: 40px;
     writing-mode: vertical-rl; font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 7vw, 5.5rem); line-height: 0.8; z-index: 10;
     background: linear-gradient(to bottom, var(--fire-orange), var(--fire-red), var(--maroon));
@@ -203,3 +203,4 @@ body, html {
     .info-grid { grid-template-columns: 1fr; }
 
 }
+
