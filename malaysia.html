@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysian Delights</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:ital,wght@0,300;0,400;0,600;1,300&family=Gochi+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" />
+
+    <style>
+ 
+        :root {
+            --maroon: #a53d3d;
+            --maroon-dark: #350a06;
+            --cream: #fcf9f2;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: var(--maroon);
+            padding: 10px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links a, .dropbtn {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.3s;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .nav-links a:hover {
+            color: #ffb8b8;
+            transform: translateY(-2px);
+        }
+
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin-left: 10px;
+        }
+
+        .search-container input {
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+            padding: 2px 5px;
+            font-size: 14px;
+            width: 120px;
+        }
+ 
+        .search-container input::placeholder { color: #eee; }
+        .search-container button { background: none; border: none; color: white; cursor: pointer; display: flex; align-items: center; }
+        .search-container .material-symbols-outlined { font-size: 20px; }
+
+     
+         .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 10;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%); 
+            border-radius: 4px;
+            overflow: hidden;
+            padding: 5px 0;
+            margin-top: 0; 
+        }
+
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -20px; 
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: transparent;
+        }
+
+        .dropdown-content a {
+            color: #333 !important;
+            background: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            transform: none !important; 
+            padding: 12px 16px !important;
+            display: block !important;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #fcf9f2 !important;
+            color: var(--maroon) !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 10% 40px 10%;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text { flex: 1; text-align: right; }
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--maroon);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .hero-image { flex: 1; text-align: left; }
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0px var(--maroon);
+            object-fit: cover;
+        }
+
+        .recipe-wrapper {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto 20px auto;
+            padding: 40px;
+            gap: 40px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .video-wrapper {
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .video-wrapper h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--maroon);
+            border-bottom: 3px solid var(--maroon);
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        video {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            outline: none;
+        }
+
+        .ingredients, .instructions { flex: 1; }
+
+        .recipe-wrapper h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--maroon);
+            border-bottom: 3px solid var(--maroon);
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .ingredients ul { list-style: none; }
+        .ingredients li { padding: 10px 0; border-bottom: 1px dashed #eee; }
+        
+        .instructions ol { counter-reset: steps; list-style: none; }
+        .instructions li {
+            counter-increment: steps;
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 30px;
+        }
+        .instructions li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0; top: 0;
+            width: 38px; height: 38px;
+            background: var(--maroon);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 2000;
+            background-color: var(--maroon);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+           
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease-in-out;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+     
+        #scrollToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--maroon-dark);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section, .recipe-wrapper, .video-wrapper { flex-direction: column; text-align: center; padding: 20px; }
+            .hero-text, .hero-image { text-align: center; }
+            .hero-section h1 { font-size: 3rem; }
+            .instructions li { padding-left: 0; padding-top: 50px; }
+            .instructions li::before { left: 50%; transform: translateX(-50%); }
+            #scrollToTopBtn { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav dropdown">
+            <a href="recipe.html" class="dropbtn">Cuisine</a>
+            <div class="dropdown-content">
+                <a href="malaysia.html">Malaysian</a>
+                <a href="thailand.html">Thai</a>
+                <a href="korean.html">South Korean</a>
+            </div>
+          </div>
+        <a href="foodiary.html">Food Diary</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="review.html">Review</a>
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="searchRecipe()" placeholder="Search Food ...">
+            <button type="button"><span class="material-symbols-outlined">search</span></button>
+        </div>
+    </div>
+</nav>
+
+<button id="scrollToTopBtn" onclick="scrollToTop()">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text"><h1>Nasi Lemak</h1></div>
+        <div class="hero-image"><img src="nasilemak.jpg" alt="Nasi Lemak Malaysia"></div>
+    </header>
+
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+              <ul>
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:10px;">Coconut Milk Steamed Rice:</li>
+                <li>2 cups rice</li>
+                <li>1 ½ cups water, cut down to 1 1⁄4  cups if using ¾ cup coconut milk</li>
+                <li>½  cup coconut milk , use  ¾  cup for creamier rice</li>
+                <li>1 teaspoon salt</li>
+                <li>3 pandan leaves, tie them into a knot</li>
+
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Spice Taste:</li>
+                <li>4 shallots, peeled</li>
+                <li>1 clove garlic, peeled</li>
+                <li>8 medium length dried red chilies, seeded</li>
+                <li>1 teaspoon belacan prawn paste</li>
+
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Tamarind Water:</li>
+                <li>1 cup water</li>
+                <li>Tamarind pulp, size of a small ping pong ball</li>
+                <li>Salt, to taste</li>
+                <li>2 tablespoons sugar, or more to taste</li>
+
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Fried Anchovies:</li>
+                <li>1 cup ikan bilis, dried anchovies, peeled</li>
+                <li>2 cups oil, for frying</li>
+                <li>1 red onion, peeled, sliced into rings</li>
+
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Other ingredients:</li>
+                <li>2 hard boiled eggs, cut into halves</li>
+                <li>1 cup roasted peanuts</li>
+                <li>1 small cucumber, cut into slices and then quartered</li>
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                <li><strong>Coconut Rice:</strong> Rinse the rice with running tap water, repeating the process a few times until the water turns clear. Drain the water completely. Add 1 ½ cups of water to the washed rice, followed by the coconut milk and a pinch of salt. Add the pandan leaves into the rice and cook your rice. Discard the pandan leaves after rice is cooked.</li>
+                <li><strong>Spice Taste:</strong> Pound the shallots, garlic, dried chilies, and prawn paste with a mortar and pestle. Alternatively, you can grind them with a food processor.</li>
+                <li><strong>Tamarind Water:</strong> Soak the tamarind pulp in water for 15 minutes. Constantly squeeze the tamarind to extract its flavor into the water. Drain the pulp and save the tamarind juice.</li>
+                <li><strong>Fried Anchovies:</strong> Rinse the dried anchovies with tap water a few times and let them drain. Heat 2 cups of oil in a pan, fry the anchovies until they've become light brown and crispy. Remove from oil with a strainer and drain on a paper towel-lined plate. You can serve them as is, or add them into sambal to make sambal anchovies.</li>
+                <li><strong>Sambal Ikan Bilis (Sambal Anchovies):</strong> On medium to low heat, heat 2 tablespoons of frying oil in a pan. Stir-fry the spice paste until fragrant, turning reddish in color. Add the onion rings and fried anchovies, stirring well. Pour in the tamarind juice, salt, and sugar. Simmer on low heat until the sauce thickens. Set it aside.</li>
+                 <li><strong>Assembling Nasi Lemak:</strong> To serve, scope out a small bowl of rice and place onto the center of a plate. Arrange the fried fish, hard boiled egg, roasted peanuts, and cucumber around the rice. Add 2 spoons of the sambal on top of the rice. Serve immediately.</li>
+            </ol>
+        </section>
+    </main>
+
+    <section class="video-wrapper">
+        <h2>Video Tutorial How to Cook Nasi Lemak</h2>
+        <video controls>
+            <source src="nasilemak.mp4" type="video/mp4">
+        </video>
+    </section>
+</div>
+
+
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text"><h1>Kuih Seri Muka</h1></div>
+        <div class="hero-image"><img src="kuih.jpg" alt="Kuih Seri Muka"></div>
+    </header>
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:10px;">For Bottom Layer:</li>
+                <li>300 g glutinous rice, soak for 30 minutes in water</li>
+                <li>200 ml thin coconut milk, 100 ml coconut milk plus 100 ml water</li>
+                <li>2 pandan leaves, optional</li>
+                <li>1 teaspoon salt</li>
+                
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">For Top Layer:</li>
+                <li>200 ml thick coconut milk , or coconut cream</li>
+                <li>2 large eggs , plus 2 egg yolks</li>
+                <li>170 g sugar</li>
+                <li>100 ml pandan juice, from 8-10 pandan leaves</li>
+                <li>5 tablespoon all-purpose flour</li>
+                <li>2 tbsp cornstarch</li>
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                <li>Mix all the ingredients for the bottom layer and steam on high heat for 20 minutes.</li>
+                <li>In the meantime, prepare the top layer by mixing the eggs, coconut milk, sugar, pandan juice, and flour together. Stir until smooth. Cook over boiling water using the double boiler method until the mixture thickens slightly but remains runny enough to pour.</li>
+                <li>After 20 minutes, take out the glutinous rice mixture, stir it, and flatten it with a spoon or your hands to ensure it is compact. Use a sieve to pour the egg mixture over the rice mixture.</li>
+                <li>Steam on medium heat for 30 minutes. Let cool before cutting the Seri Muka into diamond-shaped or rectangular pieces.</li>
+            </ol>
+  </section>
+    </main>
+</div>
+
+
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text"><h1>Black Glutinous Rice</h1></div>
+        <div class="hero-image"><img src="bubur.jpg" alt="Black Glutinous Rice"></div>
+    </header>
+    <main class="recipe-wrapper">
+             <section class="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                <li>200 g (7 oz) black sticky glutinous rice</li>
+                <li>5 cups water</li>
+                <li>2 pandan leaves, tie them into a knot</li>
+                <li>Sugar, to taste</li>
+                <li>1 cup coconut milk, mix well</li>
+                <li>1/2 tsp salt</li>
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                <li>Add the black rice to a pot and rinse it thoroughly with water until the water runs clear. Note that the rice will still appear black or purple, but the water should be clear. Drain the water completely.</li>
+                <li>Add water and pandan leaves to the rice. Cover with a lid and bring to a boil over medium to low heat for about 60 minutes. Lower the heat to simmer and continue cooking until the rice is soft and breaks apart. Keep checking the water level and add more water as needed to cook the black sticky rice. Add sugar to taste and stir to combine well.</li>
+                <li>While the rice is cooking, prepare the coconut milk mixture. Heat the coconut milk over low heat and add salt. Stir well and set aside.</li>
+                <li>Serve the black sticky rice dessert in small bowls and top each serving with a spoonful of coconut milk. For a creamier texture, add more coconut milk. Stir well before eating.</li>
+            </ol>
+     </section>
+    </main>
+</div>
+
+<script>
+
+function searchRecipe() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.getElementsByClassName('recipe-card');
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector('h1').innerText.toLowerCase();
+        cards[i].style.display = title.includes(input) ? "" : "none";
+    }
+}
+
+let mybutton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {
+    // Jika skrol lebih dari 300px dari atas
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.classList.add("show");
+    } else {
+        mybutton.classList.remove("show");
+    }
+};
+
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+</html>

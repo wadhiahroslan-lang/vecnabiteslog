@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Korean Delights</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:ital,wght@0,300;0,400;0,600;1,300&family=Gochi+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" />
+
+    <style>
+        /* --- TETAPAN ASAS & VARIABLE --- */
+        :root {
+            --maroon: #a53d3d;
+            --maroon-dark: #350a06;
+            --cream: #fcf9f2;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGASI --- */
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: var(--maroon);
+            padding: 10px 40px;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links a, .dropbtn {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            transition: 0.3s;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .nav-links a:hover {
+            color: #ffb8b8;
+            transform: translateY(-2px);
+        }
+
+        /* --- SEARCH BOX --- */
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin-left: 10px;
+        }
+
+        .search-container input {
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+            padding: 2px 5px;
+            font-size: 14px;
+            width: 120px;
+        }
+ 
+        .search-container input::placeholder {
+            color: #eee;
+        }
+
+        .search-container button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container .material-symbols-outlined {
+            font-size: 20px;
+        }
+
+        /* --- DROPDOWN CUISINE --- */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 10;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%); 
+            border-radius: 4px;
+            overflow: hidden;
+            padding: 5px 0;
+            margin-top: 0; 
+        }
+
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -20px; 
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: transparent;
+        }
+
+        .dropdown-content a {
+            color: #333 !important;
+            background: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            transform: none !important; 
+            padding: 12px 16px !important;
+            display: block !important;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #fcf9f2 !important;
+            color: var(--maroon) !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- HERO & WRAPPER STYLES --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 10% 40px 10%;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text { flex: 1; text-align: right; }
+        
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--maroon);
+            margin: 0;
+            line-height: 1;
+        }
+
+        /* BAHAGIAN YANG DIKEMASKINI: BESARKAN TULISAN KECIL */
+        .hero-text p {
+            font-size: 1.5rem; /* Saiz lebih besar */
+            font-weight: 500;   /* Lebih tebal sedikit */
+            color: #555;       /* Warna kelabu gelap sedikit */
+            margin-top: 10px;
+        }
+
+        .hero-image { flex: 1; text-align: left; }
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0px var(--maroon);
+            object-fit: cover;
+        }
+
+        .recipe-wrapper {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+            padding: 40px;
+            gap: 40px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .ingredients, .instructions { flex: 1; }
+
+        .recipe-wrapper h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--maroon);
+            border-bottom: 3px solid var(--maroon);
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .ingredients ul { list-style: none; }
+        .ingredients li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .instructions ol { counter-reset: steps; list-style: none; }
+        .instructions li {
+            counter-increment: steps;
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 30px;
+        }
+        .instructions li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0; top: 0;
+            width: 38px; height: 38px;
+            background: var(--maroon);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .recipe-divider { height: 10px; }
+
+    /* --- GAYA BUTANG SCROLL TO TOP --- */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 2000;
+            background-color: var(--maroon);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            
+            /* Sembunyi secara lalai dengan animasi */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease-in-out;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Class yang ditambah guna JS bila user scroll */
+        #scrollToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--maroon-dark);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section, .recipe-wrapper {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .hero-text, .hero-image { text-align: center; }
+            .hero-section h1 { font-size: 3rem; }
+            .instructions li { padding-left: 0; padding-top: 50px; }
+            .instructions li::before { left: 50%; transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        
+        <div class="nav dropdown">
+            <a href="recipe.html" class="dropbtn">Cuisine</a>
+            <div class="dropdown-content">
+                <a href="malaysia.html">Malaysian</a>
+                <a href="thailand.html">Thai</a>
+                <a href="korea.html">South Korean</a>
+            </div>
+          </div>
+        <a href="foodiary.html">Food Diary</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="review.html">Review</a>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="searchRecipe()" placeholder="Search Food ...">
+            <button type="button">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- BUTANG SCROLL TO TOP -->
+<button id="scrollToTopBtn" onclick="scrollToTop()">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+<!-- ================= RESEPI 1: PA THONG KO ================= -->
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text">
+            <h1>Gilgeori Toast</h1>
+            <p>South Korean Street Food Sandwich</p>
+        </div>
+        <div class="hero-image">
+            <img src="toast.jpg" alt="Gilgeori Toast">
+        </div>
+    </header>
+
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                
+                <li>2 slices milk bread, brioche, or white bread</li>
+                <li>2 tbsp butter, divided</li>
+                <li>1 slice American cheese</li>
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Omelette:</li>
+                <li>2 small eggs</li>
+                <li>1 1/2 oz cabbage, thinly sliced</li>
+                <li>1/2 oz carrots, thinly sliced</li>
+                <li>1/2 oz onion, thinly sliced</li>
+                <li>1 green onion, chopped</li>
+                <li>Pinch of salt & pepper</li>
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Condiments:</li>
+                <li>1 tsp sugar</li>
+                <li>Ketchup</li>
+                <li>Kewpie mayo</li>
+                <li>Tabasco</li>
+                <li style="border:none; font-weight:bold; color:var(--maroon); padding-top:20px;">Optional:</li>
+                <li>2 oz spam, ham, turkey, or bacon</li>
+
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                <li>In a bowl combine the cabbage, onion, green onion, carrot, eggs, salt, and pepper. Mix it with your hands and gently massage the ingredients together. Set aside. If using additional protein, you can either chop it up and add it now or add it to the sandwich separately.</li>
+                <li>Spread ½ tbsp butter on one side of both bread slices and put them in the toaster for a few minutes. If you don’t have a toaster, you can use a pan on medium low heat. Butter side down first, then flip over when both sides are browned.</li>
+                <li>Put the American cheese slice on the bread as soon as it’s done so it can melt a little. Set aside.</li>
+                <li>Add 1 tbsp butter to a pan on medium low heat, then add the egg mixture. Form a square shape, the same size as the bread. Pull in any egg mixture that bleeds out.</li>
+                <li>Flip over when the bottom is lightly browned and continue cooking for another 1-2 minutes or until cooked through.</li>
+                <li>Place on top of the toasted bread and cheese.</li>
+                <li>Add ketchup, kewpie mayo, and tabasco. Then sprinkle the sugar all over.</li>
+                <li>Add your additional protein if using.</li>
+                <li>Layer the second slice of bread on top, cut in half, and enjoy!</li>
+               
+            </ol>
+        </section>
+    </main>
+</div>
+
+<!-- ================= RESEPI 2: TOD MUN PLA ================= -->
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text">
+            <h1>Buchujeon</h1>
+            <p>South Korean Pancake with Garlic Chives</p>
+        </div>
+        <div class="hero-image">
+            <img src="buchujeon.jpg" alt="Tod Mun Pla">
+        </div>
+    </header>
+
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                <li>100 grams chives</li>
+                <li>1/2 cup all purpose flour</li>
+                <li>2 tbsp potato starch</li>
+                <li>1 tsp sugar</li>
+                <li>Salt and pepper to taste</li>
+                <li>1/2 tbsp garlic</li>
+                <li>1/2 of beaten Egg</li>
+                <li>1/2 cup water</li>
+                <li>Vegetable or canola oil for frying</li>
+ 
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+                  
+                <ol>
+                <li>Wash the chives, cut out the root, and slice them into 3-inch pieces. Set aside.</li>
+                <li>To make the batter combine flour, potato starch, salt, pepper, garlic, and egg.</li>
+                <li>Gradually add the water while mixing until right consistency is reached. It should be a little loose.</li>
+                <li>Mix in the chives gently until every piece is covered with the batter.</li>
+                <li>High heat, using a big nonstick pan, put in oil. Once it’s super hot, place your pancake mixture, shaping it to the edges, avoiding holes, as thin as possible.</li>
+                <li>Before flipping, try to move the pan in a circular motion to see if the pancake has set and separated itself from the pan.</li>
+                <li>Cook for 1 minute on high heat for both sides, then 1 minute on medium heat for both sides and as needed 1 minute on low heat for both sides. Oiling the edges in between.</li>
+                <li>Continue to cook as needed or as crispy as you like. Do watch out for white smoke as it's a sign of burning, flip as needed.</li>
+                <li>Serve hot, crispy, and with a dipping sauce. Enjoy!</li>
+
+                </ol>
+        </section>
+    </main>
+</div>
+
+<!-- ================= RESEPI 3: BUA LOY ================= -->
+<div class="recipe-card">
+    <header class="hero-section">
+        <div class="hero-text">
+            <h1>Hwachae</h1>
+            <p>Fruit Bowl</p>
+        </div>
+        <div class="hero-image">
+            <img src="hwachae.png" alt="Bua Loy">
+        </div>
+    </header>
+
+    <main class="recipe-wrapper">
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+              <ul>
+                <li>4 cups chopped fresh watermelon</li>
+                <li>1 ½ cups fresh fruit berries, melon, etc</li>
+                <li>1 can (14 ounces) fruit cocktail drained</li>
+                <li>12 ounces carbonated beverage Sprite, 7Up, etc</li>
+                <li>14 ounces strawberry milk</li>
+                <li>1 cup ice cubes</li>
+
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                
+                <li>Place the chopped watermelon, additional fruit, and drained fruit cocktail in a large bowl. Stir to combine.</li>
+                <li>Pour the strawberry milk over the fruit. Add the ice and stir to combine. Finally, pour in the carbonated drink and stir gently to combine.</li>
+                <li>Serve immediately.</li>
+               
+            </ol>
+        </section>
+    </main>
+</div>
+
+<script>
+// FUNGSI SEARCH
+function searchRecipe() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.getElementsByClassName('recipe-card');
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector('h1').innerText.toLowerCase();
+        cards[i].style.display = title.includes(input) ? "" : "none";
+    }
+}
+
+// LOGIK MUNCULKAN BUTANG BILA SKROL
+let mybutton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {
+    // Jika skrol lebih dari 300px dari atas
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.classList.add("show");
+    } else {
+        mybutton.classList.remove("show");
+    }
+};
+
+// FUNGSI SKROL KE ATAS SECARA SMOOTH
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+</html>
